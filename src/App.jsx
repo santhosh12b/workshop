@@ -738,7 +738,7 @@ const BookingModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block">Do you work in Email Outreach? *</label>
+                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block">Are You Doing Email Outreach? *</label>
                   <div className="space-y-2">
                     <label className="relative flex items-center gap-3 p-3.5 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer hover:bg-white transition-all">
                       <input type="radio" required name="emailOutreachExp" value="Yes, actively" className="peer w-4 h-4 text-blue-600 focus:ring-blue-500 border-slate-300" />
