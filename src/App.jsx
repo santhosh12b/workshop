@@ -438,58 +438,133 @@ const Discovery = () => {
           </p>
         </motion.div>
 
-        <motion.div {...scaleUp} className="bg-slate-900 rounded-[3rem] p-8 md:p-16 relative shadow-2xl">
-           <div className="absolute right-0 top-0 w-2/3 h-full bg-gradient-to-l from-indigo-500/20 to-transparent mix-blend-screen pointer-events-none" />
-           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay" />
+        <motion.div {...scaleUp} className="bg-[#050508] rounded-[2.5rem] md:rounded-[3.5rem] p-8 md:p-14 lg:p-20 relative shadow-2xl border border-white/[0.05] overflow-hidden">
            
-           <div className="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <motion.div {...slideRight} transition={{ delay: 0.2 }}>
-                 <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight tracking-tighter">Find clients through conversations already happening online.</h3>
-                 <p className="text-lg text-slate-400 mb-8 leading-relaxed font-medium">
-                   Inside discussions about Shopify growth, Meta Ads, and founder challenges are decision-makers actively looking for solutions.
+           {/* Immersive Cinematic Background */}
+           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none mix-blend-screen" />
+           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+           
+           {/* Sophisticated Spotlight - Muted and Elegant */}
+           <div className="absolute -top-[30%] left-[20%] w-[600px] h-[600px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none" />
+           <div className="absolute -bottom-[30%] right-[10%] w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+           
+           <div className="relative z-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              
+              {/* Left Column: Copywriting */}
+              <motion.div {...slideRight} transition={{ delay: 0.2 }} className="lg:col-span-5 relative">
+                 {/* Decorative line */}
+                 <div className="hidden lg:block absolute -left-12 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
+                 
+                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.05] mb-8">
+                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"></div>
+                   <span className="text-[10px] font-medium text-slate-400 tracking-[0.2em] uppercase">Intelligence Engine</span>
+                 </div>
+                 
+                 <h3 className="text-3xl md:text-5xl font-black text-white mb-6 leading-[1.1] tracking-tighter">
+                   Find the <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 to-slate-500">signal</span> in the noise.
+                 </h3>
+                 
+                 <p className="text-lg text-slate-400 mb-10 leading-relaxed font-light">
+                   While others blindly scrape databases, Creamstack monitors live online conversations to pinpoint decision-makers actively searching for your exact solution.
                  </p>
-                 <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl">
-                    <p className="text-xl font-bold text-white leading-snug">"Most people scroll past them. Creamstack helps you discover them and turn engagement into opportunity."</p>
+                 
+                 <div className="relative p-[1px] rounded-2xl bg-gradient-to-r from-white/[0.08] to-transparent overflow-hidden">
+                    <div className="bg-[#0a0a0f] rounded-[15px] p-6 relative z-10">
+                       <div className="absolute top-0 left-0 w-1 h-full bg-emerald-500/50"></div>
+                       <p className="text-sm font-medium text-slate-400 leading-relaxed">
+                         <strong className="text-slate-200">The Edge:</strong> Turn organic discussions into high-intent pipeline before your competitors even know the prospect exists.
+                       </p>
+                    </div>
                  </div>
               </motion.div>
               
-              <div className="space-y-6 relative">
-                 {/* Mock Social Comments */}
-                 <motion.div 
-                   initial={{ x: 50, opacity: 0 }} 
-                   whileInView={{ x: 0, opacity: 1 }} 
-                   viewport={{ once: true }} 
-                   transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                   className="bg-white rounded-2xl p-5 md:p-6 shadow-xl transform -rotate-1 border border-slate-100"
-                 >
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-black text-lg text-blue-600">S</div>
-                      <div>
-                        <div className="font-bold text-slate-900">Shopify Founder</div>
-                        <div className="text-xs text-slate-400 font-medium">2 hours ago</div>
-                      </div>
-                    </div>
-                    <p className="text-slate-700 font-medium text-base">"Struggling to scale our Meta ads this month. ROAS is dropping. Any agency recommendations?"</p>
-                    <div className="mt-4 inline-flex px-3 py-1 bg-green-100 text-green-700 font-bold text-[10px] rounded-full uppercase tracking-wider">High Intent Lead</div>
-                 </motion.div>
+              {/* Right Column: Signal Extraction Metaphor */}
+              <div className="lg:col-span-7 relative h-full min-h-[450px] flex items-center justify-center">
+                 
+                 {/* Subtle Grid Background representing Data */}
+                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
 
-                 <motion.div 
-                   initial={{ x: 50, opacity: 0 }} 
-                   whileInView={{ x: 0, opacity: 1 }} 
-                   viewport={{ once: true }} 
-                   transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }} 
-                   className="bg-white rounded-2xl p-5 md:p-6 shadow-xl transform rotate-1 md:ml-8 border border-slate-100"
-                 >
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center font-black text-lg text-pink-600">M</div>
-                      <div>
-                        <div className="font-bold text-slate-900">Marketing VP</div>
-                        <div className="text-xs text-slate-400 font-medium">5 hours ago</div>
-                      </div>
-                    </div>
-                    <p className="text-slate-700 font-medium text-base">"Does anyone know a good B2B SEO expert who actually understands technical content?"</p>
-                    <div className="mt-4 inline-flex px-3 py-1 bg-green-100 text-green-700 font-bold text-[10px] rounded-full uppercase tracking-wider">High Intent Lead</div>
-                 </motion.div>
+                 {/* The Radar UI */}
+                 <div className="relative w-full max-w-lg aspect-square flex items-center justify-center">
+                    
+                    {/* Concentric subtle rings */}
+                    <div className="absolute inset-10 rounded-full border border-white/[0.02]"></div>
+                    <div className="absolute inset-24 rounded-full border border-white/[0.03] border-dashed"></div>
+                    <div className="absolute inset-40 rounded-full border border-white/[0.04]"></div>
+                    
+                    {/* Scanning Line */}
+                    <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,transparent_70%,rgba(255,255,255,0.03)_100%)] animate-spin" style={{ animationDuration: '6s' }}></div>
+
+                    {/* Faded Background "Noise" Data Points */}
+                    <div className="absolute top-[20%] right-[30%] w-2 h-2 rounded-full bg-slate-700/30"></div>
+                    <div className="absolute bottom-[30%] left-[20%] w-1.5 h-1.5 rounded-full bg-slate-800/40"></div>
+                    <div className="absolute top-[60%] right-[15%] w-3 h-3 rounded-full bg-slate-800/30"></div>
+                    <div className="absolute top-[40%] left-[25%] w-2 h-2 rounded-full bg-slate-700/20"></div>
+
+                    {/* The Detected Signal - Central Focus */}
+                    <motion.div 
+                      initial={{ scale: 0.95, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 1, delay: 0.3 }}
+                      viewport={{ once: true }}
+                      className="relative z-10 w-full max-w-md"
+                    >
+                       <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 rounded-2xl blur-xl opacity-50"></div>
+                       <div className="bg-[#08080c] border border-white/[0.08] rounded-2xl p-6 relative overflow-hidden backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                          
+                          {/* Top bar of the card */}
+                          <div className="flex items-center justify-between mb-5 pb-4 border-b border-white/[0.05]">
+                             <div className="flex items-center gap-2.5">
+                               <div className="relative flex h-2.5 w-2.5">
+                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                               </div>
+                               <span className="text-[10px] font-bold text-emerald-400 tracking-[0.2em] uppercase">Target Locked</span>
+                             </div>
+                             <span className="text-[10px] text-slate-500 font-mono tracking-widest">ID: 8X-992A</span>
+                          </div>
+
+                          {/* The Data payload */}
+                          <div className="space-y-4">
+                            {/* Blurred out noise before */}
+                            <div className="flex items-start gap-3 opacity-20">
+                               <div className="w-0.5 h-4 bg-slate-600 rounded-full mt-1.5 shrink-0"></div>
+                               <div className="space-y-2 w-full mt-1">
+                                  <div className="h-1.5 w-full bg-slate-600 rounded-sm"></div>
+                                  <div className="h-1.5 w-2/3 bg-slate-600 rounded-sm"></div>
+                               </div>
+                            </div>
+
+                            {/* Clear Signal */}
+                            <div className="flex items-start gap-3 bg-white/[0.02] -mx-4 px-4 py-3 rounded-lg border-y border-white/[0.02]">
+                               <div className="w-0.5 h-full min-h-[40px] bg-emerald-400 rounded-full shrink-0 shadow-[0_0_10px_rgba(52,211,153,0.3)]"></div>
+                               <div>
+                                 <p className="text-slate-300 text-sm font-medium leading-relaxed">
+                                   <span className="text-emerald-400 font-bold">Intent Detected:</span> "We're struggling to scale our Meta ads this month. ROAS is dropping hard. Any vetted agency recommendations?"
+                                 </p>
+                               </div>
+                            </div>
+
+                            {/* Blurred out noise after */}
+                            <div className="flex items-start gap-3 opacity-20">
+                               <div className="w-0.5 h-4 bg-slate-600 rounded-full mt-1.5 shrink-0"></div>
+                               <div className="space-y-2 w-full mt-1">
+                                  <div className="h-1.5 w-4/5 bg-slate-600 rounded-sm"></div>
+                               </div>
+                            </div>
+                          </div>
+                          
+                          {/* Action Bar */}
+                          <div className="mt-6 pt-4 border-t border-white/[0.05] flex justify-between items-center">
+                             <div className="text-[10px] text-slate-400 font-medium tracking-wide">Intent Score: <span className="text-white font-bold ml-1">98%</span></div>
+                             <div className="text-[10px] text-emerald-400 font-black uppercase tracking-[0.1em] bg-emerald-400/10 px-4 py-2 rounded-lg border border-emerald-400/20 hover:bg-emerald-400/20 transition-colors cursor-default">
+                                Extract Lead
+                             </div>
+                          </div>
+                       </div>
+                    </motion.div>
+
+                 </div>
               </div>
            </div>
         </motion.div>
@@ -505,6 +580,87 @@ const Pricing = ({ openModal }) => {
         <motion.div {...fadeInUp} className="text-center mb-16 md:mb-20 max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter mb-4">Simple, transparent pricing.</h2>
           <p className="text-xl text-slate-500 font-medium">Stop paying for five different tools. Get everything in one.</p>
+        </motion.div>
+
+        <motion.div {...scaleUp} className="max-w-5xl mx-auto mb-16 md:mb-24 relative">
+          <div className="relative bg-[#030303] rounded-[2.5rem] border border-white/[0.08] p-8 md:p-14 overflow-hidden shadow-2xl">
+            {/* Cinematic lighting and mesh */}
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02] pointer-events-none" />
+            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
+            <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-fuchsia-500/10 blur-[100px] rounded-full pointer-events-none" />
+
+            <div className="text-center mb-12 md:mb-16 relative z-10">
+              <h3 className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 text-4xl md:text-5xl font-black tracking-tighter mb-4">
+                The math is simple.
+              </h3>
+              <p className="text-slate-400 text-lg font-medium">Why rent five engines when you can own the spaceship?</p>
+            </div>
+
+            <div className="flex flex-col items-center gap-6 relative z-10 w-full max-w-4xl mx-auto">
+              
+              {/* The Old Way Equation */}
+              <div className="w-full bg-white/[0.02] border border-white/[0.05] rounded-[2rem] p-6 md:p-8 flex flex-col xl:flex-row items-center justify-between gap-8 backdrop-blur-sm">
+                <div className="flex flex-wrap items-center justify-center xl:justify-start gap-3 md:gap-4">
+                  {['Sales Nav', 'Apollo', 'Clay', 'Claude', 'Instantly'].map((tool, i) => (
+                    <React.Fragment key={tool}>
+                      <div className="px-5 py-3 rounded-xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] text-slate-300 font-bold text-sm border border-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
+                        {tool}
+                      </div>
+                      {i < 4 && <span className="text-slate-600 font-light text-lg">+</span>}
+                    </React.Fragment>
+                  ))}
+                </div>
+                
+                <div className="flex items-center gap-6 shrink-0">
+                  <span className="text-slate-600 font-light text-2xl hidden md:block">=</span>
+                  <div className="text-center md:text-right">
+                    <p className="text-[10px] text-slate-500 font-black uppercase tracking-[0.2em] mb-1">Total Stack Cost</p>
+                    <p className="text-2xl md:text-3xl font-black text-slate-400 line-through decoration-red-500/50">₹25,000/mo</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* The Divider / Arrow */}
+              <div className="w-px h-12 bg-gradient-to-b from-white/10 to-transparent relative my-2">
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#030303] p-2">
+                    <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center bg-white/[0.02]">
+                       <ArrowRight size={14} className="text-slate-500 rotate-90" />
+                    </div>
+                 </div>
+              </div>
+
+              {/* The Creamstack Way */}
+              <div className="w-full bg-gradient-to-r from-blue-600/20 via-fuchsia-600/20 to-blue-600/20 border border-white/10 rounded-[2rem] p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group shadow-[0_0_50px_rgba(59,130,246,0.1)]">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-fuchsia-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] backdrop-blur-md">
+                    <img src={logoImage} alt="Creamstack" className="h-8 md:h-10 w-auto object-contain brightness-0 invert drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" />
+                  </div>
+                  <div className="hidden md:block h-12 w-px bg-white/10"></div>
+                  <div>
+                    <p className="text-white text-xl font-black tracking-tight mb-1">The All-in-One Engine</p>
+                    <p className="text-slate-400 text-sm font-medium">Everything above, seamlessly unified.</p>
+                  </div>
+                </div>
+
+                <div className="relative z-10 flex items-center gap-6 shrink-0">
+                  <span className="text-slate-400 font-light text-2xl hidden md:block">=</span>
+                  <div className="flex flex-col md:flex-row items-center gap-6">
+                    <div className="text-center md:text-right">
+                      <p className="text-[10px] text-fuchsia-400 font-black uppercase tracking-[0.2em] mb-1">Your New Price</p>
+                      <p className="text-4xl md:text-5xl font-black text-white tracking-tighter drop-shadow-lg">₹11,750<span className="text-xl font-bold text-slate-400">/mo</span></p>
+                    </div>
+                    <div className="bg-white text-[#030303] px-5 py-2.5 rounded-xl font-black text-xs uppercase tracking-[0.1em] shadow-[0_0_30px_rgba(255,255,255,0.4)] transform rotate-3 hover:rotate-0 transition-transform cursor-default">
+                       Save 53%
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </motion.div>
 
         <motion.div {...scaleUp} className="max-w-lg mx-auto">
@@ -527,7 +683,7 @@ const Pricing = ({ openModal }) => {
                  <div className="bg-green-100 text-green-700 px-5 py-2 rounded-full font-bold text-xs tracking-widest uppercase border border-green-200">
                    Save ₹4,250 Every Month
                  </div>
-                 <span className="text-[10px] font-bold text-slate-400 mt-3 uppercase tracking-widest">GST extra at checkout</span>
+                 <span className="text-[10px] font-bold text-slate-400 mt-3 uppercase tracking-widest">With GST</span>
               </div>
 
               <div className="bg-slate-50 rounded-2xl p-6 mb-8 border border-slate-100 text-center shadow-inner">
@@ -553,17 +709,6 @@ const Pricing = ({ openModal }) => {
                     <span className="text-lg font-bold text-slate-700">{feature}</span>
                   </div>
                 ))}
-              </div>
-
-              <div className="bg-slate-900 rounded-2xl p-6 mb-8 text-center relative overflow-hidden shadow-xl">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-pink-500/20" />
-                <div className="relative z-10">
-                  <p className="font-black text-white mb-2 text-sm uppercase tracking-wider">Replaces Multiple Tools</p>
-                  <p className="text-xs font-bold text-slate-400 mb-3">Sales Navigator, Apollo, Clay, Claude, Instantly</p>
-                  <div className="inline-block bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-sm">
-                    <p className="text-pink-400 font-bold text-xs">Worth ₹25,000+/month separately</p>
-                  </div>
-                </div>
               </div>
 
               <button onClick={openModal} className="w-full bg-slate-900 hover:bg-blue-600 text-white font-bold text-lg md:text-xl py-4 md:py-5 rounded-2xl transition-all duration-300 shadow-xl shadow-slate-900/20 hover:shadow-blue-500/30 hover:-translate-y-0.5 tracking-tight flex items-center justify-center gap-2 md:gap-3 group">
