@@ -935,12 +935,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center gap-2">
           <img src={logoImage} alt="Creamstack Logo" className="h-6 w-auto object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity" />
-        </div>
-        <div className="flex flex-wrap justify-center gap-8">
-          <a href="#" className="text-sm font-bold hover:text-white transition-colors">Features</a>
-          <a href="#" className="text-sm font-bold hover:text-white transition-colors">Pricing</a>
-          <a href="#" className="text-sm font-bold hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" className="text-sm font-bold hover:text-white transition-colors">Terms</a>
+          <span className="text-xs font-bold text-slate-600 ml-4 border-l border-slate-700 pl-4 tracking-widest">v1.0.1</span>
         </div>
         <div>
           <p className="text-xs font-bold">© {new Date().getFullYear()} Creamstack. All rights reserved.</p>
