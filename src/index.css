@@ -27,3 +27,18 @@
     @apply bg-gradient-to-br from-brand-blue via-[#8A9CE8] to-brand-pink;
   }
 }
+
+@keyframes pulse-bubble {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@layer utilities {
+  .animate-bubble {
+    animation: pulse-bubble 2s ease-in-out infinite;
+  }
+}
