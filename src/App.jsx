@@ -138,66 +138,91 @@ const Hero = ({ openModal }) => {
 
 const Problem = () => {
   return (
-    <section className="py-24 md:py-32 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div {...fadeInUp} className="text-center max-w-4xl mx-auto mb-16 md:mb-20">
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter mb-6 leading-tight">Why pay for three categories of tools?</h2>
-          <p className="text-xl text-slate-500 font-medium">Most teams are drowning in subscriptions, tabs, and manual data transfers.</p>
-        </motion.div>
-
-        <motion.div 
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="whileInView"
-          className="grid md:grid-cols-3 gap-6 mb-10"
-        >
-          <motion.div variants={staggerItem} className="bg-slate-50 rounded-3xl p-8 lg:p-10 border border-slate-100 hover:border-blue-100 transition-colors group">
-            <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500"><Database size={28} strokeWidth={2.5} /></div>
-            <h3 className="text-2xl font-black text-slate-900 mb-6 tracking-tight">Contact Data</h3>
+    <section className="pt-24 pb-2 bg-white relative flex flex-col items-center">
+      <div className="max-w-[1000px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative">
+        
+        {/* The 3 top cards */}
+        <div className="grid md:grid-cols-3 gap-6 relative z-10">
+          {/* Card 1 */}
+          <motion.div variants={staggerItem} initial="initial" whileInView="whileInView" className="bg-slate-50/40 rounded-3xl p-6 md:p-8 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.02)] backdrop-blur-sm relative hover:bg-slate-50 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300">
+            <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-5"><Database size={20} strokeWidth={2.5} /></div>
+            <h3 className="text-xl font-black text-slate-900 mb-5 tracking-tight">Contact Data</h3>
             <div className="flex flex-wrap gap-2">
               {['Apollo', 'ZoomInfo', 'Sales Navigator', 'RocketReach', 'Lusha'].map(t => (
-                <span key={t} className="px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold text-slate-400 line-through decoration-red-400/60 decoration-2 shadow-sm">{t}</span>
+                <span key={t} className="px-3 py-1.5 bg-slate-50 border border-slate-200/60 rounded-lg text-xs font-bold text-slate-400 shadow-sm relative overflow-hidden group">
+                  <span className="relative z-10 opacity-60">{t}</span>
+                  <span className="absolute top-1/2 left-2 right-2 h-[1.5px] bg-slate-400 -translate-y-1/2 z-20"></span>
+                </span>
               ))}
             </div>
           </motion.div>
 
-          <motion.div variants={staggerItem} className="bg-slate-50 rounded-3xl p-8 lg:p-10 border border-slate-100 hover:border-pink-100 transition-colors group">
-            <div className="w-14 h-14 bg-pink-100 text-pink-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500"><Bot size={28} strokeWidth={2.5} /></div>
-            <h3 className="text-2xl font-black text-slate-900 mb-6 tracking-tight">Research & AI</h3>
+          {/* Card 2 */}
+          <motion.div variants={staggerItem} initial="initial" whileInView="whileInView" className="bg-slate-50/40 rounded-3xl p-6 md:p-8 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.02)] backdrop-blur-sm relative hover:bg-slate-50 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300">
+            <div className="w-10 h-10 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mb-5"><Bot size={20} strokeWidth={2.5} /></div>
+            <h3 className="text-xl font-black text-slate-900 mb-5 tracking-tight">Research & AI</h3>
             <div className="flex flex-wrap gap-2">
               {['Clay', 'Claude', 'ChatGPT', 'Zapier', 'n8n'].map(t => (
-                <span key={t} className="px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold text-slate-400 line-through decoration-red-400/60 decoration-2 shadow-sm">{t}</span>
+                <span key={t} className="px-3 py-1.5 bg-slate-50 border border-slate-200/60 rounded-lg text-xs font-bold text-slate-400 shadow-sm relative overflow-hidden group">
+                  <span className="relative z-10 opacity-60">{t}</span>
+                  <span className="absolute top-1/2 left-2 right-2 h-[1.5px] bg-slate-400 -translate-y-1/2 z-20"></span>
+                </span>
               ))}
             </div>
           </motion.div>
 
-          <motion.div variants={staggerItem} className="bg-slate-50 rounded-3xl p-8 lg:p-10 border border-slate-100 hover:border-amber-100 transition-colors group">
-            <div className="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500"><Mail size={28} strokeWidth={2.5} /></div>
-            <h3 className="text-2xl font-black text-slate-900 mb-6 tracking-tight">Outreach</h3>
+          {/* Card 3 */}
+          <motion.div variants={staggerItem} initial="initial" whileInView="whileInView" className="bg-slate-50/40 rounded-3xl p-6 md:p-8 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.02)] backdrop-blur-sm relative hover:bg-slate-50 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300">
+            <div className="w-10 h-10 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-5"><Mail size={20} strokeWidth={2.5} /></div>
+            <h3 className="text-xl font-black text-slate-900 mb-5 tracking-tight">Outreach</h3>
             <div className="flex flex-wrap gap-2">
               {['Instantly', 'Smartlead', 'Lemlist', 'Brevo', 'Gmail'].map(t => (
-                <span key={t} className="px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold text-slate-400 line-through decoration-red-400/60 decoration-2 shadow-sm">{t}</span>
+                <span key={t} className="px-3 py-1.5 bg-slate-50 border border-slate-200/60 rounded-lg text-xs font-bold text-slate-400 shadow-sm relative overflow-hidden group">
+                  <span className="relative z-10 opacity-60">{t}</span>
+                  <span className="absolute top-1/2 left-2 right-2 h-[1.5px] bg-slate-400 -translate-y-1/2 z-20"></span>
+                </span>
               ))}
             </div>
           </motion.div>
-        </motion.div>
+        </div>
 
-        <motion.div {...scaleUp} className="bg-slate-900 rounded-[2.5rem] p-10 md:p-16 relative overflow-hidden flex flex-col items-center justify-center text-center shadow-2xl">
-          <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-transparent opacity-60" />
+        {/* SVG Connecting Lines (Top to Black Box) */}
+        <div className="relative h-16 md:h-20 w-full z-0 hidden md:block">
+           <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 100">
+              {/* Left Line */}
+              <path d="M 166 0 C 166 60, 500 40, 500 100" fill="none" stroke="#64748b" strokeWidth="1.5" strokeDasharray="4 4" className="opacity-40" />
+              {/* Middle Line */}
+              <path d="M 500 0 C 500 50, 500 50, 500 100" fill="none" stroke="#64748b" strokeWidth="1.5" strokeDasharray="4 4" className="opacity-40" />
+              {/* Right Line */}
+              <path d="M 833 0 C 833 60, 500 40, 500 100" fill="none" stroke="#64748b" strokeWidth="1.5" strokeDasharray="4 4" className="opacity-40" />
+           </svg>
+        </div>
+
+        {/* The Black Box */}
+        <motion.div {...scaleUp} className="bg-[#11141d] rounded-[2rem] p-10 md:p-14 relative overflow-hidden flex flex-col items-center justify-center text-center shadow-2xl z-10 max-w-[800px] mx-auto mt-6 md:mt-0">
+          {/* Light glow at bottom */}
+          <div className="absolute -bottom-[50%] left-1/2 -translate-x-1/2 w-[60%] h-[60%] bg-pink-500/20 blur-[80px] pointer-events-none rounded-full" />
           
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 relative z-10">
+          <div className="flex flex-wrap justify-center gap-3 mb-8 md:mb-10 relative z-10">
              {['Multiple Subscriptions', 'Multiple Logins', 'Multiple Workflows', 'Multiple Integrations', 'Hours Wasted'].map((item, i) => (
-                <div key={i} className="px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-slate-300 font-bold flex items-center gap-2 text-xs md:text-sm backdrop-blur-md">
-                  <div className="w-1.5 h-1.5 rounded-full bg-red-400"></div> {item}
+                <div key={i} className="px-4 py-2 rounded-full bg-white/[0.03] border border-white/5 text-slate-300 font-bold flex items-center gap-2 text-[11px] md:text-xs backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#ff5e7e] shadow-[0_0_8px_rgba(255,94,126,0.8)]"></div> {item}
                 </div>
              ))}
           </div>
 
-          <h3 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-[1.05] relative z-10">
+          <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter leading-[1.05] relative z-10">
             That's not sales.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-500">That's data entry.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff5e7e] to-[#ff3b62]">That's data entry.</span>
           </h3>
         </motion.div>
+
+        {/* Straight Vertical Connecting Line (Black Box to Bottom) */}
+        <div className="relative h-32 w-full z-0 hidden md:flex justify-center -mt-2">
+           <svg width="2" height="100%" viewBox="0 0 2 128" preserveAspectRatio="none" fill="none" className="absolute top-0 h-full overflow-visible">
+              <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#cbd5e1" strokeWidth="2" strokeDasharray="6 6" />
+           </svg>
+        </div>
       </div>
     </section>
   );
@@ -205,125 +230,101 @@ const Problem = () => {
 
 const Solution = () => {
   const features = [
-    { title: "Find Contacts", desc: "Search decision makers and companies matching your exact ICP parameters.", icon: <Search size={28} /> },
-    { title: "Research Prospects", desc: "Use AI to deeply understand who they are and what exact problems they have.", icon: <Bot size={28} /> },
-    { title: "Personalized Emails", desc: "Generate highly contextual outreach tailored to each prospect automatically.", icon: <Mail size={28} /> },
-    { title: "Launch Sequences", desc: "Automated follow-ups and tracking from the exact same unified dashboard.", icon: <Zap size={28} /> }
+    { title: "Find Contacts", desc: "Search decision makers and companies matching your exact ICP parameters.", icon: <Search size={28} strokeWidth={2.5} /> },
+    { title: "Research Prospects", desc: "Use AI to deeply understand who they are and what exact problems they have.", icon: <Bot size={28} strokeWidth={2.5} /> },
+    { title: "Personalized Emails", desc: "Generate highly contextual outreach tailored to each prospect automatically.", icon: <Mail size={28} strokeWidth={2.5} /> },
+    { title: "Launch Sequences", desc: "Automated follow-ups and tracking from the exact same unified dashboard.", icon: <Zap size={28} strokeWidth={2.5} /> }
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-slate-50 relative border-t border-slate-200/50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div {...slideRight} className="max-w-2xl">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter mb-6 leading-[1.05]">One platform.<br/>One workflow.</h2>
-            <p className="text-lg md:text-xl text-slate-500 mb-10 leading-relaxed font-medium">
+    <section className="pt-24 pb-24 md:pt-32 md:pb-40 bg-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Central Animated Dotted Line connecting the entire workflow */}
+        <div className="absolute -top-24 md:-top-32 bottom-0 left-1/2 w-4 -translate-x-1/2 z-0 block">
+           <svg className="absolute w-full h-full top-0 overflow-visible" preserveAspectRatio="none">
+              <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#cbd5e1" strokeWidth="2" strokeDasharray="6 6" />
+              <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#3b82f6" strokeWidth="2" strokeDasharray="6 6" className="opacity-0 group-hover:opacity-100 transition-opacity" />
+           </svg>
+        </div>
+        
+        {/* Header Section */}
+        <motion.div {...fadeInUp} className="text-center max-w-4xl mx-auto mb-16 sm:mb-32 relative">
+          
+          {/* Top Anchor Node */}
+          <div className="mx-auto w-12 h-12 sm:w-16 sm:h-16 bg-white border-[2px] border-slate-200 rounded-full shadow-xl flex items-center justify-center mb-6 sm:mb-8 relative z-20 text-blue-500 overflow-hidden">
+            <div className="absolute inset-0 bg-blue-500/20 animate-pulse" />
+            <Database size={16} strokeWidth={3} className="relative z-10 sm:hidden" />
+            <Database size={24} strokeWidth={2.5} className="relative z-10 hidden sm:block" />
+          </div>
+          
+          {/* White container to block the dashed line from crossing the text */}
+          <div className="relative z-20 bg-white inline-block px-4 sm:px-12 py-6 rounded-[3rem]">
+            <h2 className="text-5xl md:text-7xl lg:text-[5.5rem] font-black tracking-tighter mb-4 sm:mb-6 leading-[0.95] sm:leading-[0.9] text-[#c9e0ff] drop-shadow-sm mix-blend-multiply">
+              One platform.<br/>One workflow.
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-slate-500 leading-relaxed font-medium max-w-2xl mx-auto">
               No exports. No spreadsheets. No copy-pasting. No automation headaches. <strong className="text-slate-900 font-bold">Just pure outbound.</strong>
             </p>
-            <motion.div 
-              variants={staggerContainer}
-              initial="initial"
-              whileInView="whileInView"
-              className="space-y-8"
-            >
-              {features.map((feature, idx) => (
-                <motion.div variants={staggerItem} key={idx} className="flex gap-5 items-start group">
-                  <div className="w-14 h-14 rounded-xl bg-white shadow-sm border border-slate-200 flex items-center justify-center shrink-0 text-slate-400 group-hover:text-blue-600 group-hover:border-blue-200 group-hover:shadow-md transition-all duration-300">
-                    {feature.icon}
+          </div>
+        </motion.div>
+        
+        {/* Timeline Content */}
+        <div className="space-y-12 sm:space-y-24 relative max-w-5xl mx-auto">
+          {features.map((feature, idx) => {
+            const isEven = idx % 2 === 0;
+            return (
+              <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                viewport={{ once: true, margin: "-100px" }}
+                key={idx} 
+                className={`relative flex flex-col sm:flex-row items-center gap-8 sm:gap-0 group ${isEven ? 'sm:flex-row' : 'sm:flex-row-reverse'}`}
+              >
+                
+                {/* Center Timeline Node */}
+                <div className="static sm:absolute sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white border-[2px] border-slate-200 rounded-full shadow-xl flex items-center justify-center z-20 mb-6 sm:mb-0 mx-auto group-hover:border-blue-400 group-hover:scale-110 transition-all duration-500">
+                   <div className="w-3 h-3 sm:w-4 sm:h-4 bg-slate-300 rounded-full group-hover:bg-blue-500 transition-colors duration-500" />
+                </div>
+
+                {/* Card Container */}
+                <div className={`w-full sm:w-1/2 pl-0 sm:pl-0 ${isEven ? 'sm:pr-12 lg:pr-24' : 'sm:pl-12 lg:pl-24'} relative z-10`}>
+                  
+                  {/* Horizontal dotted connector pointing from the central node to the card (Desktop only) */}
+                  <div className={`hidden sm:block absolute top-1/2 -translate-y-1/2 border-t-[2px] border-dashed border-slate-300 group-hover:border-blue-300 transition-colors duration-500 z-0
+                    w-12 lg:w-24 ${isEven ? 'right-0' : 'left-0'}
+                  `}></div>
+
+                  <div className="bg-white rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-12 border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] group-hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)] group-hover:-translate-y-2 transition-all duration-500 relative overflow-hidden">
+                    {/* Glowing background on hover */}
+                    <div className="absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-blue-400/20 to-pink-400/20 rounded-full blur-[40px] group-hover:opacity-100 opacity-0 transition-opacity duration-700 pointer-events-none" />
+                    
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between mb-8">
+                         <div className="w-16 h-16 rounded-[1.2rem] bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:text-white group-hover:bg-blue-600 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-sm">
+                           {feature.icon}
+                         </div>
+                         <div className="text-4xl font-black text-slate-100 group-hover:text-blue-50 transition-colors duration-500">
+                           0{idx+1}
+                         </div>
+                      </div>
+                      
+                      <h4 className="text-2xl md:text-3xl font-black text-slate-900 mb-4 tracking-tight group-hover:text-blue-600 transition-colors duration-300">
+                        {feature.title}
+                      </h4>
+                      <p className="text-slate-500 text-lg font-medium leading-relaxed">
+                        {feature.desc}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-xl font-black text-slate-900 mb-1 tracking-tight">{feature.title}</h4>
-                    <p className="text-slate-500 text-base font-medium">{feature.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-          
-          <motion.div {...slideLeft} className="relative h-[450px] md:h-[550px] w-full rounded-[3rem] bg-slate-900 overflow-hidden shadow-2xl shadow-slate-900/20 border border-slate-800 flex items-center justify-center p-4 sm:p-8 perspective-[1000px]">
-             {/* Premium Background */}
-             <div className="absolute top-[-20%] right-[-20%] w-[70%] h-[70%] bg-blue-500/20 blur-[120px] rounded-full pointer-events-none" />
-             <div className="absolute bottom-[-20%] left-[-20%] w-[70%] h-[70%] bg-pink-500/20 blur-[120px] rounded-full pointer-events-none" />
-             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay pointer-events-none" />
-             
-             {/* 3D Floating UI Composition */}
-             <div className="relative w-full max-w-md transition-transform duration-700 hover:scale-105" style={{ transformStyle: 'preserve-3d' }}>
-               
-               {/* Main Dashboard Window */}
-               <div className="bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col gap-4 relative z-10">
-                 {/* Header */}
-                 <div className="flex items-center justify-between border-b border-slate-700/50 pb-4">
-                   <img src={logoImage} alt="Creamstack" className="h-5 w-auto object-contain brightness-0 invert" />
-                   <div className="flex gap-1.5">
-                     <div className="w-2.5 h-2.5 rounded-full bg-slate-700"></div>
-                     <div className="w-2.5 h-2.5 rounded-full bg-slate-700"></div>
-                     <div className="w-2.5 h-2.5 rounded-full bg-slate-700"></div>
-                   </div>
-                 </div>
+                </div>
 
-                 {/* Search Bar */}
-                 <div className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 flex items-center gap-3">
-                   <Search size={16} className="text-blue-400" />
-                   <span className="text-slate-400 text-sm font-medium truncate">Find: VP of Marketing @ Shopify...</span>
-                   <div className="ml-auto bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded-md shrink-0 tracking-wider">SEARCH</div>
-                 </div>
-
-                 {/* Contact Cards */}
-                 <div className="space-y-3 mt-2">
-                   {/* Card 1 */}
-                   <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-3 flex items-center gap-3 hover:bg-slate-800 transition-colors">
-                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center text-white font-bold text-sm shadow-inner shrink-0">SJ</div>
-                     <div className="min-w-0">
-                       <div className="text-white font-bold text-sm truncate">Sarah Jenkins</div>
-                       <div className="text-slate-400 text-xs truncate">VP Marketing • Gymshark</div>
-                     </div>
-                     <div className="ml-auto shrink-0">
-                       <span className="text-green-400 text-[10px] font-bold bg-green-400/10 px-2 py-1 rounded flex items-center gap-1 uppercase tracking-wider">
-                         <Zap size={10} /> 98% Match
-                       </span>
-                     </div>
-                   </div>
-
-                   {/* Card 2 */}
-                   <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-3 flex items-center gap-3 hover:bg-slate-800 transition-colors">
-                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-orange-400 flex items-center justify-center text-white font-bold text-sm shadow-inner shrink-0">MR</div>
-                     <div className="min-w-0">
-                       <div className="text-white font-bold text-sm truncate">Marcus Rowe</div>
-                       <div className="text-slate-400 text-xs truncate">CMO • Allbirds</div>
-                     </div>
-                     <div className="ml-auto shrink-0">
-                       <span className="text-green-400 text-[10px] font-bold bg-green-400/10 px-2 py-1 rounded flex items-center gap-1 uppercase tracking-wider">
-                         <Zap size={10} /> 94% Match
-                       </span>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-               {/* Floating Email Generation Card (Overlapping) */}
-               <motion.div 
-                 initial={{ y: 50, opacity: 0 }}
-                 whileInView={{ y: 0, opacity: 1 }}
-                 transition={{ delay: 0.5, duration: 0.6 }}
-                 viewport={{ once: true }}
-                 className="absolute bottom-2 right-2 md:-bottom-12 md:-right-8 w-56 md:w-64 bg-white rounded-2xl p-3 md:p-4 shadow-[0_30px_60px_rgba(0,0,0,0.4)] border border-slate-100 z-20"
-               >
-                 <div className="flex items-center gap-2 mb-3">
-                   <div className="bg-pink-100 text-pink-600 p-1.5 rounded-lg"><Bot size={16} /></div>
-                   <span className="text-slate-900 font-bold text-sm">AI Research & Email</span>
-                 </div>
-                 <div className="bg-slate-50 border border-slate-100 rounded-lg p-3">
-                   <div className="h-2 w-full bg-slate-200 rounded-full mb-2"></div>
-                   <div className="h-2 w-5/6 bg-slate-200 rounded-full mb-2"></div>
-                   <div className="h-2 w-4/6 bg-slate-200 rounded-full"></div>
-                 </div>
-                 <button className="w-full mt-3 bg-blue-600 text-white text-xs font-bold py-2.5 rounded-lg flex items-center justify-center gap-2 shadow-md shadow-blue-500/30 uppercase tracking-wider">
-                   <Mail size={12} /> Send Campaign
-                 </button>
-               </motion.div>
-
-             </div>
-          </motion.div>
+                {/* Empty side for layout balance on desktop */}
+                <div className="hidden sm:block w-1/2"></div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -404,7 +405,7 @@ const WorkflowComparison = () => {
 };
 
 const Agencies = () => {
-  const types = ["Performance Marketing", "Creative Agencies", "Video Editing", "Shopify Experts", "AI Automation", "SEO Agencies", "Lead Generation", "Web Development"];
+  const types = ["Performance Marketing", "Creative Agencies", "Video Editing", "Shopify Experts", "SaaS", "SEO Agencies", "Lead Generation", "Web Development"];
   return (
     <section className="py-20 bg-slate-50 border-y border-slate-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -935,7 +936,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center gap-2">
           <img src={logoImage} alt="Creamstack Logo" className="h-6 w-auto object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity" />
-          <span className="text-xs font-bold text-slate-600 ml-4 border-l border-slate-700 pl-4 tracking-widest">v1.0.1</span>
+          <span className="text-xs font-bold text-slate-600 ml-4 border-l border-slate-700 pl-4 tracking-widest">v1.0.1a</span>
         </div>
         <div>
           <p className="text-xs font-bold">© {new Date().getFullYear()} Creamstack. All rights reserved.</p>
