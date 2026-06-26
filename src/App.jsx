@@ -407,11 +407,6 @@ const Footer = () => {
     <footer className="bg-[#FAFAFA] py-16">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="font-extrabold text-3xl tracking-tight text-gray-900">Pixoda<span className="text-rose-500">.</span></div>
-        <div className="flex gap-8 text-sm text-gray-500 font-bold uppercase tracking-wider">
-          <a href="#" className="hover:text-indigo-600 transition-colors">Privacy</a>
-          <a href="#" className="hover:text-indigo-600 transition-colors">Terms</a>
-          <a href="#" className="hover:text-indigo-600 transition-colors">Contact</a>
-        </div>
         <div className="text-sm font-medium text-gray-400">
           &copy; {new Date().getFullYear()} Pixoda. All rights reserved.
         </div>
