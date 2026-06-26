@@ -157,16 +157,16 @@ const ProblemSection = () => {
               <FadeIn key={i} delay={0.1}>
                 <div className="group border-b border-gray-100 py-12 first:pt-0 cursor-default">
                   <div className="flex gap-6 md:gap-8 items-start">
-                    <span className="text-xl font-bold text-gray-300 md:group-hover:text-rose-400 transition-colors mt-1 font-mono">
+                    <span className="text-xl font-bold text-gray-300 group-hover:text-rose-400 transition-colors mt-1 font-mono">
                       0{i+1}
                     </span>
                     <div>
-                      <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3 relative inline-block md:group-hover:text-gray-400 transition-colors duration-500">
+                      <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3 relative inline-block group-hover:text-gray-400 transition-colors duration-500">
                         {p.title}
                         {/* The strike-through line animation */}
-                        <div className="absolute top-1/2 left-0 w-0 h-1.5 bg-rose-500 md:group-hover:w-full transition-all duration-500 ease-out -translate-y-1/2"></div>
+                        <div className="absolute top-1/2 left-0 w-0 h-1.5 bg-rose-500 group-hover:w-full transition-all duration-500 ease-out -translate-y-1/2"></div>
                       </h3>
-                      <p className="text-lg text-gray-500 leading-relaxed md:group-hover:opacity-50 transition-opacity duration-500">
+                      <p className="text-lg text-gray-500 leading-relaxed group-hover:opacity-50 transition-opacity duration-500">
                         {p.desc}
                       </p>
                     </div>
