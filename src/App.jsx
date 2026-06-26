@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Logo from './assets/Logo.png';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ReactLenis } from '@studio-freight/react-lenis';
 import { useInView } from 'react-intersection-observer';
@@ -51,7 +52,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'glass py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <div className="font-extrabold text-2xl tracking-tight text-gray-900">Pixoda<span className="text-rose-500">.</span></div>
+        <img src={Logo} alt="Pixoda" className="h-8 md:h-10" />
         <MagneticButton className="px-6 py-2.5 bg-gray-900 text-white font-semibold text-sm shadow-xl shadow-gray-900/20">
           Reserve Seat
         </MagneticButton>
@@ -406,7 +407,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#FAFAFA] py-16">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-        <div className="font-extrabold text-3xl tracking-tight text-gray-900">Pixoda<span className="text-rose-500">.</span></div>
+        <img src={Logo} alt="Pixoda" className="h-10 md:h-12" />
         <div className="text-sm font-medium text-gray-400">
           &copy; {new Date().getFullYear()} Pixoda. All rights reserved.
         </div>
