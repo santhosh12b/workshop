@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'glass py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <img src={Logo} alt="Pixoda" className="h-8 md:h-10" />
+        <img src={Logo} alt="Pixoda" className="h-8 md:h-10 brightness-0" />
         <MagneticButton className="px-6 py-2.5 bg-gray-900 text-white font-semibold text-sm shadow-xl shadow-gray-900/20">
           Reserve Seat
         </MagneticButton>
@@ -299,38 +299,46 @@ const Timeline = () => {
   ];
 
   return (
-    <section className="py-32 bg-white border-y border-gray-100">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="py-32 bg-[#FAFAFA] border-y border-gray-100">
+      <div className="max-w-4xl mx-auto px-6">
         <FadeIn>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-20 text-gray-900">The 3-Day Curriculum</h2>
+          <div className="text-center mb-24">
+             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">The 3-Day Curriculum</h2>
+          </div>
         </FadeIn>
 
-        <div className="space-y-12 relative">
-          <div className="absolute left-10 top-0 bottom-0 w-0.5 bg-gray-100 hidden md:block"></div>
+        <div className="space-y-6 relative flex flex-col items-center">
+          {/* Subtle central timeline line behind cards */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-200 -translate-x-1/2 hidden md:block"></div>
           
           {days.map((day, i) => (
-            <FadeIn key={i} delay={i * 0.2}>
-              <div className="relative flex flex-col md:flex-row gap-8 md:gap-16">
-                <div className="hidden md:flex absolute left-[31px] top-8 w-6 h-6 rounded-full bg-white border-[6px] border-indigo-100 items-center justify-center z-10 shadow-sm">
-                  <div className="w-2 h-2 rounded-full bg-indigo-500"></div>
+            <FadeIn key={i} delay={i * 0.1} className="w-full relative z-10">
+              <div className="flex flex-col items-center group">
+                
+                {/* Day Header */}
+                <div className="text-center mb-8 bg-[#FAFAFA] px-4">
+                  <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 font-bold tracking-widest text-xs mb-4 border border-indigo-100 shadow-sm">
+                    {day.day}
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900">{day.title}</h3>
                 </div>
                 
-                <div className="md:w-1/3 md:text-right pt-6 md:pl-0 pl-12 relative">
-                  <div className="md:hidden absolute left-0 top-8 w-4 h-4 rounded-full border-4 border-indigo-100 bg-indigo-500"></div>
-                  <div className="text-indigo-500 font-bold tracking-wider text-sm mb-2">{day.day}</div>
-                  <h3 className="text-2xl font-extrabold text-gray-900">{day.title}</h3>
-                </div>
-                
-                <div className="md:w-2/3 glass-card p-8">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Day Content Card */}
+                <div className="w-full bg-white rounded-[32px] p-8 md:p-12 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_60px_rgb(0,0,0,0.06)] transition-all duration-500">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                     {day.items.map((item, j) => (
-                      <div key={j} className="flex items-center gap-3">
-                        <CheckCircle2 className="w-4 h-4 text-indigo-500 flex-shrink-0" />
-                        <span className="font-medium text-gray-600">{item}</span>
+                      <div key={j} className="flex items-start gap-4">
+                        <div className="mt-1 w-6 h-6 rounded-full bg-indigo-50 flex items-center justify-center flex-shrink-0">
+                          <CheckCircle2 className="w-4 h-4 text-indigo-500" />
+                        </div>
+                        <span className="font-semibold text-gray-700">{item}</span>
                       </div>
                     ))}
                   </div>
                 </div>
+                
+                {/* Mobile Spacing */}
+                {i < days.length - 1 && <div className="h-16 md:hidden"></div>}
               </div>
             </FadeIn>
           ))}
@@ -407,7 +415,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#FAFAFA] py-16">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-        <img src={Logo} alt="Pixoda" className="h-10 md:h-12" />
+        <img src={Logo} alt="Pixoda" className="h-10 md:h-12 brightness-0 opacity-80" />
         <div className="text-sm font-medium text-gray-400">
           &copy; {new Date().getFullYear()} Pixoda. All rights reserved.
         </div>
