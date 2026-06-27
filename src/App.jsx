@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Logo from './assets/Logo.png';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ReactLenis } from '@studio-freight/react-lenis';
 import { useInView } from 'react-intersection-observer';
@@ -7,7 +6,8 @@ import CountUp from 'react-countup';
 import { 
   CheckCircle2, Mail, Users, Calendar, Database, 
   BarChart, ChevronDown, ArrowRight, TrendingUp, 
-  MonitorPlay, Briefcase, Target, Shield, Zap, Star, Globe, FileText
+  MonitorPlay, Briefcase, Target, Shield, Zap, Star, Globe, FileText,
+  Quote, ThumbsUp, Heart, MessageCircle, X, Loader2
 } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0, className = '' }) => {
@@ -28,7 +28,9 @@ const FadeIn = ({ children, delay = 0, className = '' }) => {
 const MagneticButton = ({ children, className = '', ...props }) => {
   return (
     <motion.button
-      whileHover={{ scale: 1.05 }}
+      animate={{ scale: [1, 1.02, 1] }}
+      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+      whileHover={{ scale: 1.06, transition: { duration: 0.2 } }}
       whileTap={{ scale: 0.95 }}
       className={`relative group overflow-hidden rounded-full ${className}`}
       {...props}
@@ -41,7 +43,7 @@ const MagneticButton = ({ children, className = '', ...props }) => {
 
 // --- Sections ---
 
-const Navbar = () => {
+const Navbar = ({ onOpenModal }) => {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -52,16 +54,16 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'glass py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <img src={Logo} alt="Pixoda" className="h-8 md:h-10 brightness-0" />
-        <MagneticButton className="px-6 py-2.5 bg-gray-900 text-white font-semibold text-sm shadow-xl shadow-gray-900/20">
-          Reserve Seat
+        <div className="font-medium text-2xl md:text-3xl tracking-tight text-gray-900" style={{ fontFamily: "'Rubik', sans-serif" }}>Pi<span className="text-[#B0E585]">xo</span>da</div>
+        <MagneticButton onClick={onOpenModal} className="px-6 py-2.5 bg-gray-900 text-white font-semibold text-sm shadow-xl shadow-gray-900/20">
+          Reserve Seat for ₹99
         </MagneticButton>
       </div>
     </nav>
   );
 };
 
-const Hero = () => {
+const Hero = ({ onOpenModal }) => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 1000], [0, 150]);
   const y2 = useTransform(scrollY, [0, 1000], [0, -150]);
@@ -76,7 +78,7 @@ const Hero = () => {
         <div className="space-y-10 flex flex-col items-center">
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-3">
-              {['Live Online', 'Free', 'Hands-on', '3 Days'].map((badge, i) => (
+              {['Live Online', '₹99 Only', 'Hands-on', '3 Days'].map((badge, i) => (
                 <span key={i} className="px-4 py-1.5 rounded-full border border-gray-200/60 bg-white/50 text-xs font-semibold text-gray-600 shadow-sm backdrop-blur-md">
                   <CheckCircle2 className="w-3.5 h-3.5 inline mr-1.5 text-indigo-500" />
                   {badge}
@@ -87,7 +89,7 @@ const Hero = () => {
           
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-gray-900">
-              Free 3-Day Live <br/>
+              3-Day Live <br/>
               <span className="text-gradient">Hands-On Client</span> <br/>
               Acquisition Bootcamp
             </h1>
@@ -101,8 +103,8 @@ const Hero = () => {
           
           <FadeIn delay={0.3}>
             <div className="flex flex-col sm:flex-row justify-center gap-4 pt-2">
-              <MagneticButton className="px-10 py-5 bg-gray-900 text-white font-semibold text-lg flex items-center justify-center gap-2 shadow-2xl shadow-gray-900/20">
-                Reserve My Free Seat <ArrowRight className="w-5 h-5" />
+              <MagneticButton onClick={onOpenModal} className="px-10 py-5 bg-gray-900 text-white font-semibold text-lg flex items-center justify-center gap-2 shadow-2xl shadow-gray-900/20">
+                Reserve My Spot for ₹99 <ArrowRight className="w-5 h-5" />
               </MagneticButton>
             </div>
           </FadeIn>
@@ -114,24 +116,158 @@ const Hero = () => {
 
 
 
+const ReviewsSection = () => {
+  return (
+    <section className="py-24 md:py-32 bg-slate-50 relative overflow-hidden border-y border-slate-200/60">
+      {/* Bioluminescent Accents */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] mix-blend-multiply pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-rose-500/10 rounded-full blur-[120px] mix-blend-multiply pointer-events-none"></div>
+      
+      {/* Subtle Grain overlay for premium texture */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        
+        <FadeIn>
+          <div className="text-center mb-16 md:mb-24">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Loved by Industry Leaders
+            </h2>
+            <p className="text-lg md:text-xl text-gray-500 font-medium max-w-2xl mx-auto">
+              Real results from professionals who have transformed their client acquisition with our framework.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-10">
+          
+          {/* CARD 1: Dharani Mahendiran */}
+          <FadeIn delay={0.1} className="h-full mt-4 lg:mt-8">
+            <motion.div 
+              whileHover={{ rotate: [0, -2, 2, -1, 1, 0] }}
+              transition={{ duration: 0.5 }}
+              className="bg-white/90 p-8 lg:p-10 shadow-xl shadow-indigo-900/5 h-full flex flex-col border border-indigo-50 relative overflow-visible rounded-[2.5rem] rounded-tl-none group"
+            >
+              <div className="absolute -top-6 -left-6 z-20">
+                <div className="absolute inset-0 bg-indigo-500 rounded-full blur-md opacity-20 transform translate-y-1 group-hover:opacity-60 transition-opacity duration-500"></div>
+                <img src="/dharani.jpg" alt="Dharani Mahendiran" className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-xl relative z-10" />
+              </div>
+              
+              <div className="ml-8 mb-5 relative z-10">
+                 <h4 className="font-bold text-gray-900 text-lg leading-tight">Dharani Mahendiran</h4>
+                 <div className="flex text-amber-400 mt-1.5">
+                   {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
+                 </div>
+              </div>
+              
+              <p className="text-gray-600 leading-relaxed italic font-serif text-[15px] flex-grow relative z-10 mt-2">
+                "Great experience working with Jagan from Pixoda. He really knows outbound marketing and helped generate quality discovery calls through targeted email and LinkedIn outreach. Professional, responsive, and result driven. Highly recommend!"
+              </p>
+            </motion.div>
+          </FadeIn>
+
+          {/* CARD 2: Dinesh Kumar */}
+          <FadeIn delay={0.2} className="h-full mt-4 lg:mt-8">
+            <motion.div 
+              whileHover={{ rotate: [0, 2, -2, 1, -1, 0] }}
+              transition={{ duration: 0.5 }}
+              className="bg-white/90 p-8 lg:p-10 shadow-xl shadow-rose-900/5 h-full flex flex-col border border-rose-50 relative overflow-visible rounded-[2.5rem] rounded-tr-none text-right group"
+            >
+              <div className="absolute -top-6 -right-6 z-20">
+                <div className="absolute inset-0 bg-rose-500 rounded-full blur-md opacity-20 transform translate-y-1 group-hover:opacity-60 transition-opacity duration-500"></div>
+                <img src="/dinesh.jpg" alt="Dinesh Kumar" className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-xl relative z-10" />
+              </div>
+              
+              <div className="mr-8 mb-5 relative z-10">
+                 <h4 className="font-bold text-gray-900 text-lg leading-tight">Dinesh Kumar</h4>
+                 <div className="flex text-amber-400 mt-1.5 justify-end">
+                   {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
+                 </div>
+              </div>
+
+              <p className="text-gray-600 text-[15px] leading-relaxed font-serif relative z-10 flex-grow italic mt-2">
+                "Pixoda team provided us practical solution for our outreach requirement. Clarity with which the team lead provided the service was exceptional.<br/><br/>It's working out .... !!! 💪"
+              </p>
+            </motion.div>
+          </FadeIn>
+
+          {/* CARD 3: Tushaar Garg */}
+          <FadeIn delay={0.3} className="h-full mt-4 lg:mt-0 mb-4 lg:mb-8">
+            <motion.div 
+              whileHover={{ rotate: [0, -2, 2, -1, 1, 0] }}
+              transition={{ duration: 0.5 }}
+              className="bg-white/90 p-8 lg:p-10 shadow-xl shadow-indigo-900/5 h-full flex flex-col border border-indigo-50 relative overflow-visible rounded-[2.5rem] rounded-bl-none group"
+            >
+              <div className="flex text-amber-400 mb-5 items-center relative z-10">
+                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+              </div>
+              <p className="text-gray-600 leading-relaxed mb-6 text-[14px] flex-grow relative z-10 italic font-serif">
+                "Pixoda led by Jeghan is an excellent organisation that provides deep understanding of their domain coupled with high levels of service / quick turn around time. They have been a huge help to me and my start-up in building a 360 outbound operating system with domain set-up, transfer, management and launch. Highly recommend for start-up founders who need a very reliable founder led affordable service organisation during crucial launch phase."
+              </p>
+              
+              <div className="absolute -bottom-6 -left-6 z-20">
+                <div className="absolute inset-0 bg-[#B0E585] rounded-full blur-md opacity-20 transform translate-y-1 group-hover:opacity-60 transition-opacity duration-500"></div>
+                <img src="/tushaar.jpg" alt="Tushaar Garg" className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-xl relative z-10" />
+              </div>
+
+              <div className="ml-12 mt-4 relative z-10 text-left">
+                <div className="font-bold text-gray-900 text-[15px]">Tushaar Garg</div>
+                <div className="text-indigo-500/80 text-[11px] tracking-wider mt-0.5 font-semibold uppercase">Start-up Founder</div>
+              </div>
+            </motion.div>
+          </FadeIn>
+
+          {/* CARD 4: Manish Agrawal */}
+          <FadeIn delay={0.4} className="h-full mt-4 lg:mt-0 mb-4 lg:mb-8">
+            <motion.div 
+              whileHover={{ rotate: [0, 2, -2, 1, -1, 0] }}
+              transition={{ duration: 0.5 }}
+              className="bg-white/90 p-8 lg:p-10 shadow-xl shadow-rose-900/5 h-full flex flex-col border border-rose-50 relative overflow-visible rounded-[2.5rem] rounded-br-none text-right group"
+            >
+               <div className="flex text-amber-400 mb-5 items-center justify-end relative z-10">
+                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+               </div>
+               
+               <p className="text-gray-600 leading-relaxed mb-6 font-serif italic text-[14px] flex-grow relative z-10">
+                 "We've worked with this team on multiple web development and marketing projects, and the experience has been excellent. Jeghan brings great insight and always adds value beyond execution. The team is reliable, professional, and delivers quality work consistently. Highly recommended!"
+               </p>
+               
+               <div className="absolute -bottom-6 -right-6 z-20">
+                  <div className="absolute inset-0 bg-[#B0E585] rounded-full blur-md opacity-20 transform translate-y-1 group-hover:opacity-60 transition-opacity duration-500"></div>
+                  <img src="/manish.jpg" alt="Manish Agrawal" className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-xl relative z-10" />
+               </div>
+
+               <div className="mr-12 mt-4 relative z-10">
+                 <div className="font-bold text-gray-900 text-[15px]">Manish Agrawal</div>
+                 <div className="text-rose-500/80 text-[11px] tracking-wider mt-0.5 font-semibold uppercase">Excellent Experience</div>
+               </div>
+            </motion.div>
+          </FadeIn>
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const ProblemItem = ({ p, index }) => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.5 });
+  const [ref, inView] = useInView({ threshold: 0.5 });
   
   return (
     <div ref={ref} className="border-b border-gray-100 py-12 first:pt-0">
       <div className="flex gap-6 md:gap-8 items-start">
-        <span className={`text-xl font-bold mt-1 font-mono transition-colors duration-700 ${inView ? 'text-rose-400' : 'text-gray-300'}`}>
+        <span className={`text-xl font-bold mt-1 font-mono transition-colors duration-[800ms] ${inView ? 'text-rose-400' : 'text-gray-300'}`}>
           0{index + 1}
         </span>
         <div>
-          <h3 className={`text-2xl md:text-3xl font-extrabold mb-3 relative inline-block transition-colors duration-700 ${inView ? 'text-gray-400' : 'text-gray-900'}`}>
+          <h3 className={`text-2xl md:text-3xl font-extrabold mb-3 relative inline-block transition-colors duration-[800ms] ${inView ? 'text-gray-400' : 'text-gray-900'}`}>
             {p.title}
             <div 
-              className="absolute top-1/2 left-0 h-1.5 bg-rose-500 -translate-y-1/2 transition-all duration-700 ease-out"
+              className="absolute top-1/2 left-0 h-[3px] md:h-1.5 bg-rose-500 -translate-y-1/2 transition-all duration-[800ms] ease-out"
               style={{ width: inView ? '100%' : '0%' }}
             ></div>
           </h3>
-          <p className={`text-lg leading-relaxed transition-opacity duration-700 ${inView ? 'text-gray-500 opacity-50' : 'text-gray-500'}`}>
+          <p className={`text-lg leading-relaxed transition-opacity duration-[800ms] ${inView ? 'text-gray-500 opacity-50' : 'text-gray-500'}`}>
             {p.desc}
           </p>
         </div>
@@ -284,39 +420,54 @@ const Timeline = () => {
     {
       day: "DAY ONE",
       title: "Business Foundation",
-      items: ["USP & Positioning", "Offer Creation", "Pricing Strategy", "ICP Definition", "Lead Magnet", "CTA Optimization"]
+      items: [
+        { title: "Find Your Starting Point", desc: "Understand where your business is today, what you're already doing well, and what needs to improve before you start growing." },
+        { title: "Build Your Offer & Positioning", desc: "Clearly define what you're selling, who it's for, and why people should choose you over others." },
+        { title: "Define Your Ideal Customer", desc: "Identify the type of people or businesses that are most likely to buy from you and learn where to reach them." },
+        { title: "Create a Lead Magnet & CTA", desc: "Create something valuable (like a free guide, checklist, or template) that encourages people to share their contact details or take the next step." }
+      ]
     },
     {
       day: "DAY TWO",
       title: "Outreach Infrastructure",
-      items: ["Domain Setup", "Business Email Setup", "DNS Configuration", "LinkedIn Optimization", "Prospecting Masterclass", "Lead List Building"]
+      items: [
+        { title: "Optimize Your LinkedIn Profile", desc: "Set up your LinkedIn profile so it looks professional, builds trust, and helps attract potential clients." },
+        { title: "Technical Setup for Outreach", desc: "Set up everything you need for professional outreach, getting a secondary domain, business email, and other essential tools." },
+        { title: "Build Your Lead List", desc: "Find and organize a list of potential customers with their verified email ids for you to contact them." },
+        { title: "Write Your Outreach Messages", desc: "Learn how to write simple and personalized messages that help you get replies with potential clients and book meetings." }
+      ]
     },
     {
       day: "DAY THREE",
       title: "Client Acquisition",
-      items: ["Cold Email Scripts", "Follow-up Sequences", "Pipeline Management", "CRM Integration", "Sales Call Framework", "Closing Strategies"]
+      items: [
+        { title: "Set Up Follow-ups", desc: "Create a follow-up system so you stay in touch. Learn the exact timing, techniques, and frequency to use to maximize responses." },
+        { title: "Track and Manage Your Leads", desc: "Keep all your potential clients organized in one place and track every conversation from start to finish." },
+        { title: "How to Handle Sales Calls", desc: "Learn how to confidently talk to potential clients, understand their needs, and close more deals." },
+        { title: "Set Your Pricing", desc: "Learn how to price your product or service confidently so it's profitable and reflects the value you provide." }
+      ]
     }
   ];
 
   return (
     <section className="py-32 bg-[#FAFAFA] border-y border-gray-100">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <FadeIn>
           <div className="text-center mb-24">
              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">The 3-Day Curriculum</h2>
           </div>
         </FadeIn>
 
-        <div className="space-y-6 relative flex flex-col items-center">
+        <div className="space-y-12 relative flex flex-col items-center">
           {/* Subtle central timeline line behind cards */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-200 -translate-x-1/2 hidden md:block"></div>
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-200 -translate-x-1/2 hidden lg:block"></div>
           
           {days.map((day, i) => (
             <FadeIn key={i} delay={i * 0.1} className="w-full relative z-10">
               <div className="flex flex-col items-center group">
                 
                 {/* Day Header */}
-                <div className="text-center mb-8 bg-[#FAFAFA] px-4">
+                <div className="text-center mb-8 bg-[#FAFAFA] px-4 relative z-10">
                   <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 font-bold tracking-widest text-xs mb-4 border border-indigo-100 shadow-sm">
                     {day.day}
                   </div>
@@ -324,21 +475,33 @@ const Timeline = () => {
                 </div>
                 
                 {/* Day Content Card */}
-                <div className="w-full bg-white rounded-[32px] p-8 md:p-12 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_60px_rgb(0,0,0,0.06)] transition-all duration-500">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-                    {day.items.map((item, j) => (
-                      <div key={j} className="flex items-start gap-4">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-indigo-50 flex items-center justify-center flex-shrink-0">
-                          <CheckCircle2 className="w-4 h-4 text-indigo-500" />
+                <div className="w-full max-w-3xl mx-auto bg-white rounded-[2.5rem] p-8 md:p-16 border border-gray-100 shadow-[0_8px_40px_rgb(0,0,0,0.04)] relative z-10 overflow-hidden">
+                  <div className="relative">
+                    {/* Subtle connecting line down the center */}
+                    <div className="absolute left-1/2 top-8 bottom-8 w-px bg-gray-100 -translate-x-1/2 hidden md:block z-0"></div>
+                    
+                    <div className="flex flex-col gap-12 relative z-10">
+                      {day.items.map((item, j) => (
+                        <div key={j} className="flex flex-col items-center text-center gap-4 group">
+                           {/* Icon with hover effect */}
+                           <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center border border-gray-200 shadow-sm relative transition-colors duration-500 group-hover:border-indigo-200 z-10">
+                             <div className="absolute inset-0 bg-indigo-50 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 origin-center"></div>
+                             <CheckCircle2 className="w-6 h-6 text-indigo-600 relative z-10" />
+                           </div>
+                           
+                           {/* Text Content */}
+                           <div className="max-w-xl mx-auto bg-white px-2">
+                              <h4 className="font-extrabold text-gray-900 text-[22px] md:text-2xl leading-tight mb-3 group-hover:text-indigo-600 transition-colors duration-300">{item.title}</h4>
+                              <p className="text-gray-500 leading-relaxed text-[16px] md:text-[17px] font-medium">
+                                {item.desc}
+                              </p>
+                           </div>
                         </div>
-                        <span className="font-semibold text-gray-700">{item}</span>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
                 
-                {/* Mobile Spacing */}
-                {i < days.length - 1 && <div className="h-16 md:hidden"></div>}
               </div>
             </FadeIn>
           ))}
@@ -352,9 +515,8 @@ const Timeline = () => {
 
 const FAQ = () => {
   const faqs = [
-    { q: "Is it really 100% free?", a: "Yes, the 3-day live bootcamp is completely free to attend." },
+    { q: "Why is there a ₹99 fee?", a: "We charge a nominal fee of ₹99 to ensure only serious, committed individuals attend, allowing us to deliver the highest quality experience." },
     { q: "Do I need prior experience?", a: "No, we cover everything from the absolute basics up to advanced outreach strategies." },
-    { q: "Will I need to buy expensive software?", a: "No. We show you how to build the system using free or very low-cost third-party tools." },
     { q: "Will recordings be available?", a: "Yes, all registrants will get access to the replays for a limited time." }
   ];
 
@@ -387,25 +549,123 @@ const FAQ = () => {
   );
 };
 
-const FinalCTA = () => {
+const FinalCTA = ({ onOpenModal }) => {
   return (
-    <section className="py-40 relative overflow-hidden flex items-center justify-center bg-white border-y border-gray-100">
-      <div className="absolute inset-0 bg-gradient-to-r from-indigo-50/50 to-rose-50/50 mix-blend-multiply"></div>
+    <section className="py-24 md:py-32 relative overflow-hidden bg-[#0A0A0A]">
+      {/* Premium background effects */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-rose-600/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
       
-      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <FadeIn>
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-8 leading-tight text-gray-900 tracking-tight">
-            Your Skills Got You This Far. <br/>
-            <span className="text-gray-400">Now Build A System.</span>
-          </h2>
-          <p className="text-2xl text-gray-500 mb-12">
-            Join the free 3-day live bootcamp and start getting clients consistently.
-          </p>
-          <MagneticButton className="px-12 py-5 bg-gradient-primary text-white rounded-full font-bold text-xl shadow-2xl shadow-indigo-500/20 flex items-center justify-center gap-3 mx-auto hover:scale-105 transition-transform">
-            Reserve My Free Seat <ArrowRight className="w-6 h-6" />
-          </MagneticButton>
-          <p className="mt-8 text-sm font-semibold text-gray-400 uppercase tracking-widest">Seats are limited to ensure quality.</p>
+          <div className="text-center mb-16 md:mb-24">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] max-w-4xl mx-auto">
+              Secure Your Spot In The 3-Day's ONLINE <br className="hidden lg:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-rose-400">
+                Zero Rupee Marketing Challenge
+              </span>
+            </h2>
+          </div>
         </FadeIn>
+
+        <FadeIn delay={0.1}>
+          <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 shadow-2xl flex flex-col lg:flex-row gap-12 items-center relative overflow-hidden">
+            
+            {/* Subtle Inner Glow */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none"></div>
+
+            {/* Left: Video Placeholder / Graphic */}
+            <div className="w-full lg:w-1/2 relative group">
+              <div className="aspect-[16/10] rounded-2xl md:rounded-[2rem] overflow-hidden bg-gray-900 border border-white/10 relative shadow-2xl">
+                {/* Abstract video placeholder graphic */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-950 flex items-center justify-center">
+                  {/* Grid overlay */}
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+                  
+                  {/* Play Button */}
+                  <div className="relative z-10 w-24 h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/20 transition-all duration-500 cursor-pointer shadow-[0_0_40px_rgba(255,255,255,0.1)]">
+                    <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-2"></div>
+                  </div>
+                  
+                  {/* Floating badges */}
+                  <div className="absolute bottom-6 left-6 px-4 py-2 bg-black/60 backdrop-blur-md rounded-xl border border-white/10 flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></div>
+                    <span className="text-white text-xs font-bold tracking-wider">LIVE WEBINAR</span>
+                  </div>
+                  
+                  <div className="absolute top-6 right-6 px-4 py-2 bg-gradient-to-r from-rose-500 to-rose-600 rounded-xl border border-rose-400 text-white font-black italic transform rotate-3 shadow-xl">
+                    LEARN IN 3 DAYS
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Details & CTA */}
+            <div className="w-full lg:w-1/2 flex flex-col gap-8 relative z-10">
+              
+              <div className="space-y-6">
+                {/* Detail Item 1 */}
+                <div className="flex gap-5 items-start">
+                  <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0">
+                    <Calendar className="w-6 h-6 text-indigo-400" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-1">Webinar Live On</div>
+                    <div className="text-xl font-extrabold text-white">JUN 26 2026 – JUN 28 2026</div>
+                  </div>
+                </div>
+
+                {/* Detail Item 2 */}
+                <div className="flex gap-5 items-start">
+                  <div className="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center flex-shrink-0">
+                    <MonitorPlay className="w-6 h-6 text-rose-400" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-1">Timing Starts At</div>
+                    <div className="text-xl font-extrabold text-white">07:00 AM to 08:30 AM</div>
+                  </div>
+                </div>
+
+                {/* Detail Item 3 */}
+                <div className="flex gap-5 items-start">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                    <Globe className="w-6 h-6 text-emerald-400" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-1">Will Be Held In</div>
+                    <div className="text-xl font-extrabold text-white">Zoom Live Session</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 border-t border-white/10">
+                <MagneticButton onClick={onOpenModal} className="w-full py-6 bg-gradient-to-r from-indigo-500 to-rose-500 text-white font-black text-lg md:text-xl rounded-2xl shadow-[0_0_40px_rgba(99,102,241,0.3)]">
+                  RESERVE YOUR SPOT FOR ₹99 NOW!
+                </MagneticButton>
+              </div>
+
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* Bottom Benefits */}
+        <FadeIn delay={0.2}>
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              "Zero Rupee Marketing hacking strategies",
+              "Get Bonus Worth of Rs.5000/-",
+              "Gamified Marketing Framework for Entrepreneurs"
+            ].map((text, i) => (
+              <div key={i} className="flex items-center gap-4 bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-5">
+                <div className="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center flex-shrink-0">
+                  <CheckCircle2 className="w-4 h-4 text-rose-400" />
+                </div>
+                <span className="text-white text-sm font-medium leading-snug">{text}</span>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+
       </div>
     </section>
   );
@@ -415,7 +675,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#FAFAFA] py-16">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-        <img src={Logo} alt="Pixoda" className="h-10 md:h-12 brightness-0 opacity-80" />
+        <div className="font-medium text-3xl md:text-4xl tracking-tight text-gray-900" style={{ fontFamily: "'Rubik', sans-serif" }}>Pi<span className="text-[#B0E585]">xo</span>da</div>
         <div className="text-sm font-medium text-gray-400">
           &copy; {new Date().getFullYear()} Pixoda. All rights reserved.
         </div>
@@ -424,25 +684,288 @@ const Footer = () => {
   );
 };
 
+const WhoIsThisFor = () => {
+  const audiences = [
+    { title: "Entrepreneurs & Business Owners", desc: "Scale beyond word-of-mouth.", delay: 0.1, rotation: "-rotate-2" },
+    { title: "Marketers & Freelancers", desc: "Get high-retainer clients.", delay: 0.2, rotation: "rotate-1" },
+    { title: "Solopreneurs & Coaches", desc: "Build a predictable pipeline.", delay: 0.3, rotation: "-rotate-1" },
+    { title: "Retailers & Local Business", desc: "Dominate your local market.", delay: 0.4, rotation: "rotate-2" },
+    { title: "Startup Founders", desc: "Acquire users at zero cost.", delay: 0.5, rotation: "-rotate-2" }
+  ];
+
+  return (
+    <section className="py-24 md:py-32 bg-[#FAFAFA] relative border-y border-gray-100 overflow-hidden">
+      {/* Notebook Dot Grid Background */}
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 2px, transparent 2px)', backgroundSize: '32px 32px' }}></div>
+      
+      {/* Background Doodles */}
+      <div className="absolute top-32 left-10 text-rose-400 opacity-40 transform -rotate-12 pointer-events-none hidden md:block">
+        <svg width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round"><path d="M10,50 Q30,10 50,50 T90,50"/></svg>
+      </div>
+      <div className="absolute bottom-32 right-10 text-indigo-400 opacity-40 transform rotate-45 pointer-events-none hidden md:block">
+        <svg width="60" height="60" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round"><path d="M50,10 L50,90 M10,50 L90,50 M20,20 L80,80 M20,80 L80,20"/></svg>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <FadeIn>
+          <div className="text-center mb-16 md:mb-24 relative">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 tracking-tight mb-6">
+              Who Is <span className="relative inline-block">
+                This For?
+                {/* Hand-drawn underline doodle */}
+                <svg className="absolute w-[110%] h-5 -bottom-3 -left-[5%] text-rose-500" viewBox="0 0 100 20" preserveAspectRatio="none" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round">
+                  <path d="M5 15 Q 30 5 50 12 T 95 8" />
+                </svg>
+              </span>
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto font-medium">
+              If you fall into any of these categories, this system is built to scale your acquisition.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24">
+          
+          {/* Left/Center: The Doodle Portrait */}
+          <FadeIn className="relative w-72 h-72 lg:w-[450px] lg:h-[450px] flex-shrink-0 mt-8 lg:mt-0">
+            {/* The Blob shape */}
+            <div 
+              className="relative w-full h-full border-[6px] lg:border-[8px] border-[#0F172A] shadow-[15px_15px_0px_0px_#FBCFE8] overflow-hidden bg-white z-10 transition-transform hover:scale-[1.02] duration-500 isolate"
+              style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%', transform: 'translateZ(0)' }}
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" 
+                alt="Expert" 
+                className="w-full h-full object-cover object-center scale-105"
+                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'; }}
+              />
+            </div>
+            
+            {/* Doodle Arrow pointing from list to portrait */}
+            <svg className="absolute top-1/4 -right-16 w-24 h-24 text-indigo-500 hidden lg:block" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
+              {/* Curve from top-right to bottom-left */}
+              <path d="M90 20 Q 50 10 10 50" />
+              {/* Arrowhead on the left */}
+              <path d="M30 40 L 10 50 L 20 70" />
+            </svg>
+          </FadeIn>
+
+          {/* Right: The scattered doodle list */}
+          <div className="flex flex-col gap-5 w-full max-w-lg">
+            {audiences.map((aud, i) => (
+              <FadeIn key={i} delay={aud.delay} className={`transform ${aud.rotation} hover:rotate-0 hover:scale-105 transition-all duration-300`}>
+                <div className="bg-white border-[3px] border-gray-900 p-5 lg:p-6 rounded-2xl shadow-[6px_6px_0px_0px_rgba(99,102,241,0.2)] hover:shadow-[10px_10px_0px_0px_rgba(99,102,241,0.4)] transition-all flex items-start gap-4 cursor-default group">
+                  <div className="w-8 h-8 rounded-full border-[3px] border-gray-900 bg-rose-100 flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-indigo-100 transition-colors">
+                    <div className="w-2 h-2 bg-gray-900 rounded-full"></div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-1">{aud.title}</h3>
+                    <p className="text-gray-600 font-medium text-sm md:text-base">{aud.desc}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const RegistrationModal = ({ isOpen, onClose }) => {
+  const [formData, setFormData] = useState({
+    name: '', email: '', phone: '', designation: '', companyName: '', companyWebsite: '', emailOutreach: 'No', notes: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      document.body.appendChild(script);
+    }
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    try {
+      // 1. Google Sheets Submission Placeholder
+      // WARNING: Replace this URL with the actual Web App URL you get from Google Apps Script
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/a/macros/pixoda.co/s/AKfycbxh6hFuY88WyyF2IMoO_NRrtvWEIkctmJaNhkh17f3cHm2WT4_bA9u2FGIORCgvdddWpg/exec';
+      
+      // Prepare data for Google Sheets
+      if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL') {
+        const formPayload = new FormData();
+        Object.keys(formData).forEach(key => formPayload.append(key, formData[key]));
+        
+        // Use mode: 'no-cors' to avoid browser CORS blocks.
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          body: formPayload,
+          mode: 'no-cors'
+        });
+      } else {
+        // Just simulate if no URL is provided yet
+        await new Promise(resolve => setTimeout(resolve, 1500));
+      }
+      
+      // 2. Open Razorpay
+      const options = {
+        key: 'YOUR_RAZORPAY_KEY_ID', // Replace with Razorpay Key
+        amount: 9900, // ₹99.00
+        currency: 'INR',
+        name: 'Pixoda',
+        description: '3-Day Marketing Bootcamp',
+        handler: function (response) {
+          alert(`Payment Successful! Registration Complete.`);
+          onClose();
+        },
+        prefill: {
+          name: formData.name,
+          email: formData.email,
+          contact: formData.phone
+        },
+        theme: {
+          color: '#4F46E5'
+        }
+      };
+      
+      const rzp = new window.Razorpay(options);
+      rzp.on('payment.failed', function (response){
+        alert("Payment failed. Please try again.");
+      });
+      rzp.open();
+      
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
+      <div className="absolute inset-0 bg-gray-900/60 backdrop-blur-sm" onClick={onClose}></div>
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+      >
+        <div className="flex justify-between items-center p-6 border-b border-gray-100 bg-gray-50/50">
+          <div>
+            <h2 className="text-2xl font-black text-gray-900">Secure Your Spot</h2>
+            <p className="text-sm text-gray-500 font-medium mt-1">Fill this form to proceed to payment (₹99)</p>
+          </div>
+          <button onClick={onClose} className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition-colors">
+            <X className="w-5 h-5 text-gray-500" />
+          </button>
+        </div>
+        
+        <div className="p-6 overflow-y-auto flex-grow custom-scrollbar">
+          <form id="registration-form" onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Full Name *</label>
+                <input required type="text" name="name" value={formData.name} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-gray-50/50 focus:bg-white" placeholder="John Doe" />
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Email Address *</label>
+                <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-gray-50/50 focus:bg-white" placeholder="john@example.com" />
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Phone Number *</label>
+                <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-gray-50/50 focus:bg-white" placeholder="+91 98765 43210" />
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Designation</label>
+                <input type="text" name="designation" value={formData.designation} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-gray-50/50 focus:bg-white" placeholder="Founder / Marketing Head" />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Company Name</label>
+                <input type="text" name="companyName" value={formData.companyName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-gray-50/50 focus:bg-white" placeholder="Acme Corp" />
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Company Website</label>
+                <input type="text" name="companyWebsite" value={formData.companyWebsite} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-gray-50/50 focus:bg-white" placeholder="acme.com" />
+              </div>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-bold text-gray-700 mb-2">Do you work in Email Outreach? *</label>
+              <div className="flex gap-6">
+                <label className="flex items-center gap-2 cursor-pointer group">
+                  <input type="radio" name="emailOutreach" value="Yes" checked={formData.emailOutreach === 'Yes'} onChange={handleChange} className="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 cursor-pointer" />
+                  <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors">Yes</span>
+                </label>
+                <label className="flex items-center gap-2 cursor-pointer group">
+                  <input type="radio" name="emailOutreach" value="No" checked={formData.emailOutreach === 'No'} onChange={handleChange} className="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 cursor-pointer" />
+                  <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors">No</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-bold text-gray-700 mb-1.5">Notes (Optional)</label>
+              <textarea name="notes" value={formData.notes} onChange={handleChange} rows="2" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-gray-50/50 focus:bg-white resize-none" placeholder="Any specific challenges you want to solve?"></textarea>
+            </div>
+          </form>
+        </div>
+        
+        <div className="p-6 border-t border-gray-100 bg-gray-50/50 flex justify-end gap-4 shrink-0">
+          <button type="button" onClick={onClose} className="px-6 py-3 rounded-xl font-bold text-gray-600 hover:bg-gray-200 transition-colors">
+            Cancel
+          </button>
+          <button form="registration-form" type="submit" disabled={isSubmitting} className="px-8 py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 disabled:opacity-70">
+            {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Proceed to Payment (₹99)'}
+          </button>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
 export default function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleOpenModal = () => setIsModalOpen(true);
+
   return (
     <ReactLenis root>
       <div className="bg-[#FAFAFA] text-gray-900 min-h-screen selection:bg-indigo-100 selection:text-indigo-900">
-        <Navbar />
-        <Hero />
+        <Navbar onOpenModal={handleOpenModal} />
+        <Hero onOpenModal={handleOpenModal} />
+        <FinalCTA onOpenModal={handleOpenModal} />
+        <WhoIsThisFor />
         <ProblemSection />
         <Timeline />
         <WhatYoullBuild />
         <FAQ />
-        <FinalCTA />
+        <ReviewsSection />
         <Footer />
         
         {/* Floating CTA */}
         <div className="fixed bottom-6 right-6 z-50 md:hidden">
-           <MagneticButton className="w-14 h-14 bg-gradient-primary rounded-full flex items-center justify-center shadow-xl shadow-indigo-500/30 text-white">
+           <MagneticButton onClick={handleOpenModal} className="w-14 h-14 bg-gradient-primary rounded-full flex items-center justify-center shadow-xl shadow-indigo-500/30 text-white">
              <ArrowRight className="w-6 h-6" />
            </MagneticButton>
         </div>
+
+        <RegistrationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     </ReactLenis>
   );
