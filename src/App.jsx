@@ -263,7 +263,7 @@ const ProblemItem = ({ p, index }) => {
           <h3 className={`text-2xl md:text-3xl font-extrabold mb-3 relative inline-block transition-colors duration-[800ms] ${inView ? 'text-gray-400' : 'text-gray-900'}`}>
             {p.title}
             <div 
-              className="absolute top-1/2 left-0 h-[3px] md:h-1.5 bg-rose-500 -translate-y-1/2 transition-all duration-[800ms] ease-out"
+              className="absolute top-1/2 left-0 h-[3px] md:h-1.5 bg-rose-500/50 -translate-y-1/2 transition-all duration-[800ms] ease-out"
               style={{ width: inView ? '100%' : '0%' }}
             ></div>
           </h3>
@@ -491,7 +491,10 @@ const Timeline = () => {
                            
                            {/* Text Content */}
                            <div className="max-w-xl mx-auto bg-white px-2">
-                              <h4 className="font-extrabold text-gray-900 text-[22px] md:text-2xl leading-tight mb-3 group-hover:text-indigo-600 transition-colors duration-300">{item.title}</h4>
+                              <h4 className="font-extrabold text-gray-900 text-[22px] md:text-2xl leading-tight mb-3 group-hover:text-indigo-600 transition-colors duration-300">
+                                <span className="text-indigo-500 mr-2">Lesson {j + 1}:</span>
+                                {item.title}
+                              </h4>
                               <p className="text-gray-500 leading-relaxed text-[16px] md:text-[17px] font-medium">
                                 {item.desc}
                               </p>
@@ -724,44 +727,66 @@ const WhoIsThisFor = () => {
           </div>
         </FadeIn>
 
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20">
           
-          {/* Left/Center: The Doodle Portrait */}
-          <FadeIn className="relative w-72 h-72 lg:w-[450px] lg:h-[450px] flex-shrink-0 mt-8 lg:mt-0">
-            {/* The Blob shape */}
-            <div 
-              className="relative w-full h-full border-[6px] lg:border-[8px] border-[#0F172A] shadow-[15px_15px_0px_0px_#FBCFE8] overflow-hidden bg-white z-10 transition-transform hover:scale-[1.02] duration-500 isolate"
-              style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%', transform: 'translateZ(0)' }}
-            >
+          {/* Left: Premium Editorial Image Frame */}
+          <FadeIn className="relative w-full max-w-[300px] lg:max-w-[400px] flex-shrink-0 mt-8 lg:mt-0 mx-auto lg:mx-0">
+            
+            {/* Background Accent 1 */}
+            <div className="absolute -inset-3 lg:-inset-5 bg-gradient-to-br from-indigo-100 to-rose-100 rounded-[2.5rem] transform rotate-[-4deg] border border-gray-200/50 z-0 hidden lg:block"></div>
+            
+            {/* Background Accent 2 */}
+            <div className="absolute -inset-3 lg:-inset-5 bg-gray-900 rounded-[2.5rem] transform rotate-[3deg] z-0 hidden lg:block shadow-xl shadow-gray-900/20"></div>
+            
+            {/* The Image Container */}
+            <div className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl z-10 bg-gray-900 group">
               <img 
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" 
-                alt="Expert" 
-                className="w-full h-full object-cover object-center scale-105"
-                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'; }}
+                src="/modern_professionals.png" 
+                alt="Business Growth Strategy" 
+                className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 opacity-90"
               />
+              
+              {/* Gradient Overlay for depth */}
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent"></div>
+              
+              {/* Floating Badge */}
+              <div className="absolute bottom-6 left-6 right-6 transform group-hover:-translate-y-2 transition-transform duration-500">
+                <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-4 rounded-xl flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-indigo-500/30">
+                     <Users className="w-6 h-6 text-white" />
+                   </div>
+                   <div>
+                     <div className="text-white font-bold text-[15px] tracking-wide leading-tight">For Growth Seekers</div>
+                     <div className="text-indigo-200 text-[13px] font-medium mt-0.5">Join 500+ successful alumni</div>
+                   </div>
+                </div>
+              </div>
             </div>
             
-            {/* Doodle Arrow pointing from list to portrait */}
-            <svg className="absolute top-1/4 -right-16 w-24 h-24 text-indigo-500 hidden lg:block" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
-              {/* Curve from top-right to bottom-left */}
-              <path d="M90 20 Q 50 10 10 50" />
-              {/* Arrowhead on the left */}
-              <path d="M30 40 L 10 50 L 20 70" />
-            </svg>
+            {/* Decorative Elements */}
+            <div className="absolute -top-12 -right-12 text-indigo-500 opacity-20 transform rotate-12 z-0 hidden lg:block pointer-events-none">
+               <svg width="120" height="120" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="50" cy="50" r="40" strokeDasharray="6 6"/></svg>
+            </div>
+            <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNFMkU4RjAiLz48L3N2Zz4=')] z-0 hidden lg:block pointer-events-none opacity-60"></div>
+
           </FadeIn>
 
-          {/* Right: The scattered doodle list */}
-          <div className="flex flex-col gap-5 w-full max-w-lg">
+          {/* Right: The Simple Structured List */}
+          <div className="flex flex-col gap-4 w-full max-w-lg z-10">
             {audiences.map((aud, i) => (
-              <FadeIn key={i} delay={aud.delay} className={`transform ${aud.rotation} hover:rotate-0 hover:scale-105 transition-all duration-300`}>
-                <div className="bg-white border-[3px] border-gray-900 p-5 lg:p-6 rounded-2xl shadow-[6px_6px_0px_0px_rgba(99,102,241,0.2)] hover:shadow-[10px_10px_0px_0px_rgba(99,102,241,0.4)] transition-all flex items-start gap-4 cursor-default group">
-                  <div className="w-8 h-8 rounded-full border-[3px] border-gray-900 bg-rose-100 flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-indigo-100 transition-colors">
-                    <div className="w-2 h-2 bg-gray-900 rounded-full"></div>
+              <FadeIn key={i} delay={aud.delay}>
+                <div className="bg-white border-[2px] border-[#0F172A] px-5 py-4 lg:px-6 lg:py-5 rounded-[12px] shadow-sm flex items-start gap-4">
+                  
+                  {/* Circular target icon */}
+                  <div className="w-[22px] h-[22px] rounded-full border-[2.5px] border-[#0F172A] flex items-center justify-center flex-shrink-0 mt-1 bg-rose-50/50">
+                    <div className="w-2.5 h-2.5 bg-[#0F172A] rounded-full"></div>
                   </div>
+                  
                   <div>
-                    <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-1">{aud.title}</h3>
-                    <p className="text-gray-600 font-medium text-sm md:text-base">{aud.desc}</p>
+                    <h3 className="text-[17px] lg:text-[19px] font-black text-[#0F172A] mb-0.5 leading-tight tracking-tight">{aud.title}</h3>
+                    <p className="text-gray-500 font-medium text-[13px] lg:text-[14px]">{aud.desc}</p>
                   </div>
+
                 </div>
               </FadeIn>
             ))}
