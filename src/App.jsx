@@ -162,24 +162,7 @@ const ReviewsSection = () => {
 
            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 pb-10">
           
-          {/* CARD 1: Dharani Mahendiran */}
-          <FadeIn delay={0.1}>
-            <div className="flex flex-col items-center group">
-              <div className="bg-white p-6 md:p-8 rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-gray-100 relative mb-6 transition-transform duration-300 group-hover:-translate-y-1 w-full">
-                <div className="flex text-amber-400 mb-4 justify-center gap-1">
-                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
-                </div>
-                <p className="text-gray-600 leading-relaxed font-serif text-[15px] italic text-center">
-                  "Great experience working with Jagan from Pixoda. He really knows outbound marketing and helped generate quality discovery calls through targeted email and LinkedIn outreach. Professional, responsive, and result driven. Highly recommend!"
-                </p>
-                {/* The Triangle */}
-                <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-5 h-5 bg-white border-b border-r border-gray-100 transform rotate-45 rounded-sm"></div>
-              </div>
-              <img src="/dharani.jpg" alt="Dharani Mahendiran" className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md z-10" />
-              <h4 className="font-bold text-gray-900 text-[15px] mt-3">Dharani Mahendiran</h4>
-            </div>
-          </FadeIn>
-
+        
           {/* CARD 2: Dinesh Kumar */}
           <FadeIn delay={0.2}>
             <div className="flex flex-col items-center group">
@@ -216,6 +199,25 @@ const ReviewsSection = () => {
               <div className="text-indigo-500 text-[10px] font-bold tracking-widest mt-1 uppercase">Start-up Founder</div>
             </div>
           </FadeIn>
+
+            {/* CARD 1: Dharani Mahendiran */}
+          <FadeIn delay={0.1}>
+            <div className="flex flex-col items-center group">
+              <div className="bg-white p-6 md:p-8 rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-gray-100 relative mb-6 transition-transform duration-300 group-hover:-translate-y-1 w-full">
+                <div className="flex text-amber-400 mb-4 justify-center gap-1">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                </div>
+                <p className="text-gray-600 leading-relaxed font-serif text-[15px] italic text-center">
+                  "Great experience working with Jagan from Pixoda. He really knows outbound marketing and helped generate quality discovery calls through targeted email and LinkedIn outreach. Professional, responsive, and result driven. Highly recommend!"
+                </p>
+                {/* The Triangle */}
+                <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-5 h-5 bg-white border-b border-r border-gray-100 transform rotate-45 rounded-sm"></div>
+              </div>
+              <img src="/dharani.jpg" alt="Dharani Mahendiran" className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md z-10" />
+              <h4 className="font-bold text-gray-900 text-[15px] mt-3">Dharani Mahendiran</h4>
+            </div>
+          </FadeIn>
+
 
           {/* CARD 4: Manish Agrawal */}
           <FadeIn delay={0.4}>
@@ -633,8 +635,8 @@ const FinalCTA = ({ onOpenModal }) => {
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-white/10">
-                <MagneticButton onClick={onOpenModal} className="w-full py-6 bg-gradient-to-r from-indigo-500 to-rose-500 text-white font-black text-lg md:text-xl rounded-2xl shadow-[0_0_40px_rgba(99,102,241,0.3)]">
+              <div className="pt-6 border-t border-white/10 w-full px-2 md:px-0">
+                <MagneticButton onClick={onOpenModal} className="w-full py-5 md:py-6 px-4 bg-gradient-to-r from-indigo-500 to-rose-500 text-white font-black text-sm sm:text-base md:text-xl rounded-2xl shadow-[0_0_40px_rgba(99,102,241,0.3)]">
                   RESERVE YOUR SPOT FOR ₹99 NOW!
                 </MagneticButton>
               </div>
@@ -695,14 +697,14 @@ const ProofSection = () => {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="max-w-5xl mx-auto columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
             {proofs.map((proof, idx) => (
-              <FadeIn key={idx} delay={0.1 * (idx % 3)}>
+              <FadeIn key={idx} delay={0.1 * (idx % 3)} className="break-inside-avoid">
                 <div 
                   onClick={() => setSelectedProof(proof)}
-                  className="bg-white rounded-[2rem] p-6 border border-gray-100 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.1)] transition-all duration-500 h-[280px] sm:h-[320px] flex items-center justify-center group relative overflow-hidden cursor-zoom-in"
+                  className="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] transition-shadow duration-500 group relative cursor-zoom-in"
                 >
-                  <img src={proof} alt={`Student Result Proof ${idx + 1}`} className="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-500 drop-shadow-sm" loading="lazy" />
+                  <img src={proof} alt={`Student Result Proof ${idx + 1}`} className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700" loading="lazy" />
                   
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-gray-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
@@ -794,7 +796,7 @@ const WhoIsThisFor = () => {
           </div>
         </FadeIn>
 
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-16 lg:gap-20">
           
           {/* Left: Premium Editorial Image Frame */}
           <FadeIn className="relative w-full max-w-[300px] lg:max-w-[400px] flex-shrink-0 mt-8 lg:mt-0 mx-auto lg:mx-0">
@@ -964,7 +966,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
         className="relative w-full max-w-4xl bg-white rounded-[2rem] shadow-2xl overflow-hidden max-h-[90vh] flex flex-col lg:flex-row"
       >
         {/* Left Side: Premium Visual Prop */}
-        <div className="hidden lg:flex lg:w-2/5 bg-gray-900 relative p-8 xl:p-10 flex-col justify-between text-white overflow-hidden border-r border-gray-800 h-full min-h-0">
+        <div className="hidden lg:flex lg:w-2/5 bg-gray-900 relative p-8 xl:p-10 flex-col justify-between text-white overflow-hidden border-r border-gray-800">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-indigo-500/10 to-rose-500/10 z-0"></div>
           <div className="absolute -top-24 -left-24 w-64 h-64 bg-indigo-600 rounded-full blur-[100px] opacity-40 z-0"></div>
           <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-rose-600 rounded-full blur-[100px] opacity-40 z-0"></div>
@@ -1003,8 +1005,8 @@ const RegistrationModal = ({ isOpen, onClose }) => {
               <h2 className="text-2xl font-black text-gray-900 tracking-tight">Secure Your Spot</h2>
               <p className="text-sm text-gray-500 font-medium mt-1">Fill this form to proceed to payment (₹99)</p>
             </div>
-            <button onClick={onClose} className="w-10 h-10 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition-colors group">
-              <X className="w-5 h-5 text-gray-500 group-hover:text-gray-900 transition-colors" />
+            <button onClick={onClose} className="w-10 h-10 shrink-0 rounded-full bg-gray-100 border border-gray-300 flex items-center justify-center hover:bg-gray-200 transition-colors group shadow-sm">
+              <X className="w-5 h-5 text-gray-900 group-hover:text-black transition-colors" />
             </button>
           </div>
           
@@ -1070,12 +1072,12 @@ const RegistrationModal = ({ isOpen, onClose }) => {
             </form>
           </div>
           
-          <div className="p-6 md:px-10 md:py-6 border-t border-gray-100 bg-white flex justify-end gap-4 shrink-0 shadow-[0_-10px_20px_rgb(0,0,0,0.02)] relative z-10">
-            <button type="button" onClick={onClose} className="px-6 py-3.5 rounded-xl font-bold text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-colors">
-              Cancel
-            </button>
-            <button form="registration-form" type="submit" disabled={isSubmitting} className="px-8 py-3.5 bg-gradient-to-r from-gray-900 to-gray-800 text-white rounded-xl font-black hover:from-gray-800 hover:to-gray-700 transition-all flex items-center justify-center gap-2 disabled:opacity-70 shadow-lg shadow-gray-900/20 transform hover:-translate-y-0.5">
+          <div className="p-6 md:px-10 md:py-6 border-t border-gray-100 bg-white flex flex-col items-center justify-center gap-3 shrink-0 shadow-[0_-10px_20px_rgb(0,0,0,0.02)] relative z-10">
+            <button form="registration-form" type="submit" disabled={isSubmitting} className="w-full sm:w-auto px-12 py-4 bg-gradient-to-r from-gray-900 to-gray-800 text-white rounded-xl font-black hover:from-gray-800 hover:to-gray-700 transition-all flex items-center justify-center gap-2 disabled:opacity-70 shadow-lg shadow-gray-900/20 transform hover:-translate-y-0.5 text-lg">
               {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Proceed to Payment (₹99)'}
+            </button>
+            <button type="button" onClick={onClose} className="w-full sm:w-auto px-8 py-3 rounded-xl font-bold text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-colors">
+              Cancel
             </button>
           </div>
         </div>
