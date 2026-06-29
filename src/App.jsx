@@ -7,8 +7,15 @@ import {
   CheckCircle2, Mail, Users, Calendar, Database, 
   BarChart, ChevronDown, ArrowRight, TrendingUp, 
   MonitorPlay, Briefcase, Target, Shield, Zap, Star, Globe, FileText,
-  Quote, ThumbsUp, Heart, MessageCircle, X, Loader2
+  Quote, ThumbsUp, Heart, MessageCircle, X, Loader2, Clock
 } from 'lucide-react';
+
+import proof14 from './assets/Group 14.png';
+import proof15 from './assets/Group 15.png';
+import proof16 from './assets/Group 16.png';
+import proof17 from './assets/Group 17.png';
+import proof18 from './assets/Group 18.png';
+import proof19 from './assets/Group 19.png';
 
 const FadeIn = ({ children, delay = 0, className = '' }) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -78,7 +85,7 @@ const Hero = ({ onOpenModal }) => {
         <div className="space-y-10 flex flex-col items-center">
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-3">
-              {['Live Online', '₹99 Only', 'Hands-on', '3 Days'].map((badge, i) => (
+              {['Live Online', '₹99 Only', 'Hands-on'].map((badge, i) => (
                 <span key={i} className="px-4 py-1.5 rounded-full border border-gray-200/60 bg-white/50 text-xs font-semibold text-gray-600 shadow-sm backdrop-blur-md">
                   <CheckCircle2 className="w-3.5 h-3.5 inline mr-1.5 text-indigo-500" />
                   {badge}
@@ -89,16 +96,30 @@ const Hero = ({ onOpenModal }) => {
           
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-gray-900">
-              3-Day Live <br/>
-              <span className="text-gradient">Hands-On Client</span> <br/>
-              Acquisition Bootcamp
+              Free 3-Day Live <br/>
+              <span className="text-gradient">Hands-On Training</span> <br/>
+              to Get Clients
             </h1>
           </FadeIn>
           
           <FadeIn delay={0.2}>
             <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
-              Learn the exact framework we've used to generate leads, book meetings and land high-value clients through positioning, prospecting, outreach and sales systems.
+              For Freelancers • Agency Owners • SaaS Founders • Consultants • Video Editors • Marketing Teams
             </p>
+          </FadeIn>
+          
+          <FadeIn delay={0.25}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mt-2 mb-4 text-gray-800 font-bold text-base md:text-lg bg-white/60 backdrop-blur-md px-8 py-3 rounded-2xl border border-gray-200/50 shadow-sm">
+              <div className="flex items-center gap-2.5">
+                <Calendar className="w-5 h-5 text-indigo-600" />
+                <span>Aug 12 - 14, 2024</span>
+              </div>
+              <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+              <div className="flex items-center gap-2.5">
+                <Clock className="w-5 h-5 text-rose-500" />
+                <span>7:00 PM - 9:00 PM IST</span>
+              </div>
+            </div>
           </FadeIn>
           
           <FadeIn delay={0.3}>
@@ -139,109 +160,80 @@ const ReviewsSection = () => {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-10">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 pb-10">
           
           {/* CARD 1: Dharani Mahendiran */}
-          <FadeIn delay={0.1} className="h-full mt-4 lg:mt-8">
-            <motion.div 
-              whileHover={{ rotate: [0, -2, 2, -1, 1, 0] }}
-              transition={{ duration: 0.5 }}
-              className="bg-white/90 p-8 lg:p-10 shadow-xl shadow-indigo-900/5 h-full flex flex-col border border-indigo-50 relative overflow-visible rounded-[2.5rem] rounded-tl-none group"
-            >
-              <div className="absolute -top-6 -left-6 z-20">
-                <div className="absolute inset-0 bg-indigo-500 rounded-full blur-md opacity-20 transform translate-y-1 group-hover:opacity-60 transition-opacity duration-500"></div>
-                <img src="/dharani.jpg" alt="Dharani Mahendiran" className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-xl relative z-10" />
+          <FadeIn delay={0.1}>
+            <div className="flex flex-col items-center group">
+              <div className="bg-white p-6 md:p-8 rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-gray-100 relative mb-6 transition-transform duration-300 group-hover:-translate-y-1 w-full">
+                <div className="flex text-amber-400 mb-4 justify-center gap-1">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                </div>
+                <p className="text-gray-600 leading-relaxed font-serif text-[15px] italic text-center">
+                  "Great experience working with Jagan from Pixoda. He really knows outbound marketing and helped generate quality discovery calls through targeted email and LinkedIn outreach. Professional, responsive, and result driven. Highly recommend!"
+                </p>
+                {/* The Triangle */}
+                <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-5 h-5 bg-white border-b border-r border-gray-100 transform rotate-45 rounded-sm"></div>
               </div>
-              
-              <div className="ml-8 mb-5 relative z-10">
-                 <h4 className="font-bold text-gray-900 text-lg leading-tight">Dharani Mahendiran</h4>
-                 <div className="flex text-amber-400 mt-1.5">
-                   {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
-                 </div>
-              </div>
-              
-              <p className="text-gray-600 leading-relaxed italic font-serif text-[15px] flex-grow relative z-10 mt-2">
-                "Great experience working with Jagan from Pixoda. He really knows outbound marketing and helped generate quality discovery calls through targeted email and LinkedIn outreach. Professional, responsive, and result driven. Highly recommend!"
-              </p>
-            </motion.div>
+              <img src="/dharani.jpg" alt="Dharani Mahendiran" className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md z-10" />
+              <h4 className="font-bold text-gray-900 text-[15px] mt-3">Dharani Mahendiran</h4>
+            </div>
           </FadeIn>
 
           {/* CARD 2: Dinesh Kumar */}
-          <FadeIn delay={0.2} className="h-full mt-4 lg:mt-8">
-            <motion.div 
-              whileHover={{ rotate: [0, 2, -2, 1, -1, 0] }}
-              transition={{ duration: 0.5 }}
-              className="bg-white/90 p-8 lg:p-10 shadow-xl shadow-rose-900/5 h-full flex flex-col border border-rose-50 relative overflow-visible rounded-[2.5rem] rounded-tr-none text-right group"
-            >
-              <div className="absolute -top-6 -right-6 z-20">
-                <div className="absolute inset-0 bg-rose-500 rounded-full blur-md opacity-20 transform translate-y-1 group-hover:opacity-60 transition-opacity duration-500"></div>
-                <img src="/dinesh.jpg" alt="Dinesh Kumar" className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-xl relative z-10" />
+          <FadeIn delay={0.2}>
+            <div className="flex flex-col items-center group">
+              <div className="bg-white p-6 md:p-8 rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-gray-100 relative mb-6 transition-transform duration-300 group-hover:-translate-y-1 w-full">
+                <div className="flex text-amber-400 mb-4 justify-center gap-1">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                </div>
+                <p className="text-gray-600 leading-relaxed font-serif text-[15px] italic text-center">
+                  "Pixoda team provided us practical solution for our outreach requirement. Clarity with which the team lead provided the service was exceptional. It's working out .... !!! 💪"
+                </p>
+                {/* The Triangle */}
+                <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-5 h-5 bg-white border-b border-r border-gray-100 transform rotate-45 rounded-sm"></div>
               </div>
-              
-              <div className="mr-8 mb-5 relative z-10">
-                 <h4 className="font-bold text-gray-900 text-lg leading-tight">Dinesh Kumar</h4>
-                 <div className="flex text-amber-400 mt-1.5 justify-end">
-                   {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
-                 </div>
-              </div>
-
-              <p className="text-gray-600 text-[15px] leading-relaxed font-serif relative z-10 flex-grow italic mt-2">
-                "Pixoda team provided us practical solution for our outreach requirement. Clarity with which the team lead provided the service was exceptional.<br/><br/>It's working out .... !!! 💪"
-              </p>
-            </motion.div>
+              <img src="/dinesh.jpg" alt="Dinesh Kumar" className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md z-10" />
+              <h4 className="font-bold text-gray-900 text-[15px] mt-3">Dinesh Kumar</h4>
+            </div>
           </FadeIn>
 
           {/* CARD 3: Tushaar Garg */}
-          <FadeIn delay={0.3} className="h-full mt-4 lg:mt-0 mb-4 lg:mb-8">
-            <motion.div 
-              whileHover={{ rotate: [0, -2, 2, -1, 1, 0] }}
-              transition={{ duration: 0.5 }}
-              className="bg-white/90 p-8 lg:p-10 shadow-xl shadow-indigo-900/5 h-full flex flex-col border border-indigo-50 relative overflow-visible rounded-[2.5rem] rounded-bl-none group"
-            >
-              <div className="flex text-amber-400 mb-5 items-center relative z-10">
-                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+          <FadeIn delay={0.3}>
+            <div className="flex flex-col items-center group">
+              <div className="bg-white p-6 md:p-8 rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-gray-100 relative mb-6 transition-transform duration-300 group-hover:-translate-y-1 w-full h-full flex flex-col">
+                <div className="flex text-amber-400 mb-4 justify-center gap-1">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                </div>
+                <p className="text-gray-600 leading-relaxed font-serif text-[15px] italic text-center flex-grow">
+                  "Pixoda led by Jeghan is an excellent organisation that provides deep understanding of their domain coupled with high levels of service / quick turn around time. Highly recommend for start-up founders who need a very reliable founder led affordable service organisation during crucial launch phase."
+                </p>
+                {/* The Triangle */}
+                <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-5 h-5 bg-white border-b border-r border-gray-100 transform rotate-45 rounded-sm"></div>
               </div>
-              <p className="text-gray-600 leading-relaxed mb-6 text-[14px] flex-grow relative z-10 italic font-serif">
-                "Pixoda led by Jeghan is an excellent organisation that provides deep understanding of their domain coupled with high levels of service / quick turn around time. They have been a huge help to me and my start-up in building a 360 outbound operating system with domain set-up, transfer, management and launch. Highly recommend for start-up founders who need a very reliable founder led affordable service organisation during crucial launch phase."
-              </p>
-              
-              <div className="absolute -bottom-6 -left-6 z-20">
-                <div className="absolute inset-0 bg-[#B0E585] rounded-full blur-md opacity-20 transform translate-y-1 group-hover:opacity-60 transition-opacity duration-500"></div>
-                <img src="/tushaar.jpg" alt="Tushaar Garg" className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-xl relative z-10" />
-              </div>
-
-              <div className="ml-12 mt-4 relative z-10 text-left">
-                <div className="font-bold text-gray-900 text-[15px]">Tushaar Garg</div>
-                <div className="text-indigo-500/80 text-[11px] tracking-wider mt-0.5 font-semibold uppercase">Start-up Founder</div>
-              </div>
-            </motion.div>
+              <img src="/tushaar.jpg" alt="Tushaar Garg" className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md z-10" />
+              <h4 className="font-bold text-gray-900 text-[15px] mt-3">Tushaar Garg</h4>
+              <div className="text-indigo-500 text-[10px] font-bold tracking-widest mt-1 uppercase">Start-up Founder</div>
+            </div>
           </FadeIn>
 
           {/* CARD 4: Manish Agrawal */}
-          <FadeIn delay={0.4} className="h-full mt-4 lg:mt-0 mb-4 lg:mb-8">
-            <motion.div 
-              whileHover={{ rotate: [0, 2, -2, 1, -1, 0] }}
-              transition={{ duration: 0.5 }}
-              className="bg-white/90 p-8 lg:p-10 shadow-xl shadow-rose-900/5 h-full flex flex-col border border-rose-50 relative overflow-visible rounded-[2.5rem] rounded-br-none text-right group"
-            >
-               <div className="flex text-amber-400 mb-5 items-center justify-end relative z-10">
-                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
-               </div>
-               
-               <p className="text-gray-600 leading-relaxed mb-6 font-serif italic text-[14px] flex-grow relative z-10">
-                 "We've worked with this team on multiple web development and marketing projects, and the experience has been excellent. Jeghan brings great insight and always adds value beyond execution. The team is reliable, professional, and delivers quality work consistently. Highly recommended!"
-               </p>
-               
-               <div className="absolute -bottom-6 -right-6 z-20">
-                  <div className="absolute inset-0 bg-[#B0E585] rounded-full blur-md opacity-20 transform translate-y-1 group-hover:opacity-60 transition-opacity duration-500"></div>
-                  <img src="/manish.jpg" alt="Manish Agrawal" className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-xl relative z-10" />
-               </div>
-
-               <div className="mr-12 mt-4 relative z-10">
-                 <div className="font-bold text-gray-900 text-[15px]">Manish Agrawal</div>
-                 <div className="text-rose-500/80 text-[11px] tracking-wider mt-0.5 font-semibold uppercase">Excellent Experience</div>
-               </div>
-            </motion.div>
+          <FadeIn delay={0.4}>
+            <div className="flex flex-col items-center group">
+              <div className="bg-white p-6 md:p-8 rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-gray-100 relative mb-6 transition-transform duration-300 group-hover:-translate-y-1 w-full h-full flex flex-col">
+                <div className="flex text-amber-400 mb-4 justify-center gap-1">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                </div>
+                <p className="text-gray-600 leading-relaxed font-serif text-[15px] italic text-center flex-grow">
+                  "We've worked with this team on multiple web development and marketing projects, and the experience has been excellent. Jeghan brings great insight and always adds value beyond execution. The team is reliable, professional, and delivers quality work consistently. Highly recommended!"
+                </p>
+                {/* The Triangle */}
+                <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-5 h-5 bg-white border-b border-r border-gray-100 transform rotate-45 rounded-sm"></div>
+              </div>
+              <img src="/manish.jpg" alt="Manish Agrawal" className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md z-10" />
+              <h4 className="font-bold text-gray-900 text-[15px] mt-3">Manish Agrawal</h4>
+              <div className="text-rose-500 text-[10px] font-bold tracking-widest mt-1 uppercase">Excellent Experience</div>
+            </div>
           </FadeIn>
 
         </div>
@@ -260,10 +252,10 @@ const ProblemItem = ({ p, index }) => {
           0{index + 1}
         </span>
         <div>
-          <h3 className={`text-2xl md:text-3xl font-extrabold mb-3 relative inline-block transition-colors duration-[800ms] ${inView ? 'text-gray-400' : 'text-gray-900'}`}>
-            {p.title}
+          <h3 className={`text-2xl md:text-3xl font-bold mb-3 relative inline-block transition-colors duration-[800ms] ${inView ? 'text-gray-400' : 'text-gray-900'}`}>
+            <span className="relative z-10">{p.title}</span>
             <div 
-              className="absolute top-1/2 left-0 h-[3px] md:h-1.5 bg-rose-500/50 -translate-y-1/2 transition-all duration-[800ms] ease-out"
+              className="absolute top-1/2 left-0 h-[2px] md:h-[3px] bg-rose-500/80 -translate-y-1/2 transition-all duration-[800ms] ease-out z-20 pointer-events-none mix-blend-multiply"
               style={{ width: inView ? '100%' : '0%' }}
             ></div>
           </h3>
@@ -674,6 +666,81 @@ const FinalCTA = ({ onOpenModal }) => {
   );
 };
 
+const ProofSection = () => {
+  const proofs = [proof14, proof15, proof16, proof17, proof18, proof19];
+  const [selectedProof, setSelectedProof] = useState(null);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (selectedProof) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; }
+  }, [selectedProof]);
+
+  return (
+    <>
+      <section className="py-24 md:py-32 bg-[#FAFAFA] relative border-y border-gray-100 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <FadeIn>
+            <div className="text-center mb-16 md:mb-20">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight mb-6">
+                Don't Just Take <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-rose-500">Our Word</span> For It.
+              </h2>
+              <p className="text-lg md:text-xl text-gray-500 font-medium max-w-2xl mx-auto">
+                Real results, real numbers, and real pipeline growth from our alumni. The system speaks for itself.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {proofs.map((proof, idx) => (
+              <FadeIn key={idx} delay={0.1 * (idx % 3)}>
+                <div 
+                  onClick={() => setSelectedProof(proof)}
+                  className="bg-white rounded-[2rem] p-6 border border-gray-100 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.1)] transition-all duration-500 h-[280px] sm:h-[320px] flex items-center justify-center group relative overflow-hidden cursor-zoom-in"
+                >
+                  <img src={proof} alt={`Student Result Proof ${idx + 1}`} className="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-500 drop-shadow-sm" loading="lazy" />
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-gray-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                    <span className="bg-white/90 text-gray-900 font-bold px-6 py-3 rounded-full text-sm tracking-wide shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                      Click to Expand
+                    </span>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox Modal */}
+      {selectedProof && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 sm:p-8 backdrop-blur-sm"
+          onClick={() => setSelectedProof(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 text-white/60 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors duration-200"
+            onClick={() => setSelectedProof(null)}
+          >
+             <X className="w-8 h-8" />
+          </button>
+          <img 
+            src={selectedProof} 
+            alt="Expanded Proof" 
+            className="max-w-[95vw] max-h-[90vh] rounded-2xl object-contain shadow-2xl" 
+            onClick={(e) => e.stopPropagation()} 
+          />
+        </div>
+      )}
+    </>
+  );
+};
+
 const Footer = () => {
   return (
     <footer className="bg-[#FAFAFA] py-16">
@@ -689,11 +756,11 @@ const Footer = () => {
 
 const WhoIsThisFor = () => {
   const audiences = [
-    { title: "Entrepreneurs & Business Owners", desc: "Scale beyond word-of-mouth.", delay: 0.1, rotation: "-rotate-2" },
-    { title: "Marketers & Freelancers", desc: "Get high-retainer clients.", delay: 0.2, rotation: "rotate-1" },
-    { title: "Solopreneurs & Coaches", desc: "Build a predictable pipeline.", delay: 0.3, rotation: "-rotate-1" },
-    { title: "Retailers & Local Business", desc: "Dominate your local market.", delay: 0.4, rotation: "rotate-2" },
-    { title: "Startup Founders", desc: "Acquire users at zero cost.", delay: 0.5, rotation: "-rotate-2" }
+    { title: "Freelancers", desc: "Get consistent, high-paying clients.", delay: 0.1, rotation: "-rotate-2" },
+    { title: "Agency Owners", desc: "Scale your monthly recurring revenue.", delay: 0.2, rotation: "rotate-1" },
+    { title: "SaaS Founders", desc: "Acquire new users at scale.", delay: 0.3, rotation: "-rotate-1" },
+    { title: "Video Editors", desc: "Land retainer contracts effortlessly.", delay: 0.5, rotation: "-rotate-1" },
+    { title: "Marketing Teams", desc: "Master cutting-edge outreach systems.", delay: 0.6, rotation: "rotate-1" }
   ];
 
   return (
@@ -821,25 +888,30 @@ const RegistrationModal = ({ isOpen, onClose }) => {
     try {
       // 1. Google Sheets Submission Placeholder
       // WARNING: Replace this URL with the actual Web App URL you get from Google Apps Script
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/a/macros/pixoda.co/s/AKfycbxh6hFuY88WyyF2IMoO_NRrtvWEIkctmJaNhkh17f3cHm2WT4_bA9u2FGIORCgvdddWpg/exec';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx2VNrGqcioBzWnl2Rqq3FT6tEoQCrXBGU5Vtrd0mrHW_5D51rk6sS7_aobeYjQ7SGZKg/exec';
       
       // Prepare data for Google Sheets
       if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL') {
-        const formPayload = new FormData();
-        Object.keys(formData).forEach(key => formPayload.append(key, formData[key]));
+        // Create an explicit URL-encoded string (100% browser compatible)
+        const formBody = Object.keys(formData)
+          .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(formData[key]))
+          .join('&');
         
-        // Use mode: 'no-cors' to avoid browser CORS blocks.
         await fetch(GOOGLE_SCRIPT_URL, {
           method: 'POST',
-          body: formPayload,
-          mode: 'no-cors'
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+          },
+          mode: 'no-cors',
+          body: formBody
         });
       } else {
         // Just simulate if no URL is provided yet
         await new Promise(resolve => setTimeout(resolve, 1500));
       }
       
-      // 2. Open Razorpay
+      // 2. Open Razorpay - BYPASSED FOR TESTING
+      /*
       const options = {
         key: 'YOUR_RAZORPAY_KEY_ID', // Replace with Razorpay Key
         amount: 9900, // ₹99.00
@@ -865,6 +937,11 @@ const RegistrationModal = ({ isOpen, onClose }) => {
         alert("Payment failed. Please try again.");
       });
       rzp.open();
+      */
+      
+      // Temporary test success
+      alert("Test data successfully sent to Google Sheets! (Razorpay bypassed for testing)");
+      onClose();
       
     } catch (error) {
       console.error(error);
@@ -880,85 +957,127 @@ const RegistrationModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
-      <div className="absolute inset-0 bg-gray-900/60 backdrop-blur-sm" onClick={onClose}></div>
+      <div className="absolute inset-0 bg-gray-900/80 backdrop-blur-md" onClick={onClose}></div>
       <motion.div 
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+        className="relative w-full max-w-4xl bg-white rounded-[2rem] shadow-2xl overflow-hidden max-h-[90vh] flex flex-col lg:flex-row"
       >
-        <div className="flex justify-between items-center p-6 border-b border-gray-100 bg-gray-50/50">
-          <div>
-            <h2 className="text-2xl font-black text-gray-900">Secure Your Spot</h2>
-            <p className="text-sm text-gray-500 font-medium mt-1">Fill this form to proceed to payment (₹99)</p>
+        {/* Left Side: Premium Visual Prop */}
+        <div className="hidden lg:flex lg:w-2/5 bg-gray-900 relative p-8 xl:p-10 flex-col justify-between text-white overflow-hidden border-r border-gray-800 h-full min-h-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-indigo-500/10 to-rose-500/10 z-0"></div>
+          <div className="absolute -top-24 -left-24 w-64 h-64 bg-indigo-600 rounded-full blur-[100px] opacity-40 z-0"></div>
+          <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-rose-600 rounded-full blur-[100px] opacity-40 z-0"></div>
+          
+          <div className="relative z-10">
+            <div className="w-14 h-14 bg-white/10 backdrop-blur-xl rounded-2xl flex items-center justify-center mb-8 border border-white/10 shadow-xl">
+              <Target className="w-7 h-7 text-indigo-400" />
+            </div>
+            <h2 className="text-4xl font-black mb-5 leading-[1.1] tracking-tight">Claim Your Edge.</h2>
+            <p className="text-gray-400 font-medium leading-relaxed text-lg">
+              Join an elite group of professionals building predictable client acquisition systems.
+            </p>
           </div>
-          <button onClick={onClose} className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition-colors">
-            <X className="w-5 h-5 text-gray-500" />
-          </button>
+          
+          <div className="relative z-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl">
+            <div className="flex text-amber-400 mb-3">
+              {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+            </div>
+            <p className="text-sm text-gray-300 italic mb-5 leading-relaxed font-serif">"The clarity provided was exceptional. It's working out...!"</p>
+            <div className="flex items-center gap-3">
+               <div className="w-10 h-10 rounded-full bg-gray-700 overflow-hidden border-2 border-white/20">
+                 <img src="/dinesh.jpg" alt="Dinesh" className="w-full h-full object-cover" />
+               </div>
+               <div>
+                 <div className="text-sm font-bold text-white">Dinesh Kumar</div>
+                 <div className="text-[11px] text-gray-400 uppercase tracking-widest font-semibold mt-0.5">Alumni</div>
+               </div>
+            </div>
+          </div>
         </div>
-        
-        <div className="p-6 overflow-y-auto flex-grow custom-scrollbar">
-          <form id="registration-form" onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1.5">Full Name *</label>
-                <input required type="text" name="name" value={formData.name} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-gray-50/50 focus:bg-white" placeholder="John Doe" />
-              </div>
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1.5">Email Address *</label>
-                <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-gray-50/50 focus:bg-white" placeholder="john@example.com" />
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1.5">Phone Number *</label>
-                <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-gray-50/50 focus:bg-white" placeholder="+91 98765 43210" />
-              </div>
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1.5">Designation</label>
-                <input type="text" name="designation" value={formData.designation} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-gray-50/50 focus:bg-white" placeholder="Founder / Marketing Head" />
-              </div>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1.5">Company Name</label>
-                <input type="text" name="companyName" value={formData.companyName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-gray-50/50 focus:bg-white" placeholder="Acme Corp" />
-              </div>
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1.5">Company Website</label>
-                <input type="text" name="companyWebsite" value={formData.companyWebsite} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-gray-50/50 focus:bg-white" placeholder="acme.com" />
-              </div>
-            </div>
-            
+        {/* Right Side: Form */}
+        <div className="w-full lg:w-3/5 flex flex-col relative bg-white h-full min-h-0 min-w-0">
+          <div className="flex justify-between items-center p-6 md:px-10 md:pt-10 border-b border-gray-100 shrink-0">
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">Do you work in Email Outreach? *</label>
-              <div className="flex gap-6">
-                <label className="flex items-center gap-2 cursor-pointer group">
-                  <input type="radio" name="emailOutreach" value="Yes" checked={formData.emailOutreach === 'Yes'} onChange={handleChange} className="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 cursor-pointer" />
-                  <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors">Yes</span>
-                </label>
-                <label className="flex items-center gap-2 cursor-pointer group">
-                  <input type="radio" name="emailOutreach" value="No" checked={formData.emailOutreach === 'No'} onChange={handleChange} className="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 cursor-pointer" />
-                  <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors">No</span>
-                </label>
-              </div>
+              <h2 className="text-2xl font-black text-gray-900 tracking-tight">Secure Your Spot</h2>
+              <p className="text-sm text-gray-500 font-medium mt-1">Fill this form to proceed to payment (₹99)</p>
             </div>
+            <button onClick={onClose} className="w-10 h-10 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition-colors group">
+              <X className="w-5 h-5 text-gray-500 group-hover:text-gray-900 transition-colors" />
+            </button>
+          </div>
+          
+          <div className="p-6 md:px-10 overflow-y-auto flex-grow [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-200 [&::-webkit-scrollbar-thumb]:rounded-full">
+            <form id="registration-form" onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-bold text-gray-900 mb-2">Full Name *</label>
+                  <input required type="text" name="name" value={formData.name} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-gray-200/80 bg-gray-50/50 text-gray-900 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all font-medium placeholder-gray-400" placeholder="John Doe" />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-gray-900 mb-2">Email Address *</label>
+                  <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-gray-200/80 bg-gray-50/50 text-gray-900 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all font-medium placeholder-gray-400" placeholder="john@example.com" />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-bold text-gray-900 mb-2">Phone Number *</label>
+                  <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-gray-200/80 bg-gray-50/50 text-gray-900 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all font-medium placeholder-gray-400" placeholder="+91 98765 43210" />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-gray-900 mb-2">Designation</label>
+                  <input type="text" name="designation" value={formData.designation} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-gray-200/80 bg-gray-50/50 text-gray-900 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all font-medium placeholder-gray-400" placeholder="Founder / Marketing" />
+                </div>
+              </div>
 
-            <div>
-              <label className="block text-sm font-bold text-gray-700 mb-1.5">Notes (Optional)</label>
-              <textarea name="notes" value={formData.notes} onChange={handleChange} rows="2" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-gray-50/50 focus:bg-white resize-none" placeholder="Any specific challenges you want to solve?"></textarea>
-            </div>
-          </form>
-        </div>
-        
-        <div className="p-6 border-t border-gray-100 bg-gray-50/50 flex justify-end gap-4 shrink-0">
-          <button type="button" onClick={onClose} className="px-6 py-3 rounded-xl font-bold text-gray-600 hover:bg-gray-200 transition-colors">
-            Cancel
-          </button>
-          <button form="registration-form" type="submit" disabled={isSubmitting} className="px-8 py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 disabled:opacity-70">
-            {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Proceed to Payment (₹99)'}
-          </button>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-bold text-gray-900 mb-2">Company Name</label>
+                  <input type="text" name="companyName" value={formData.companyName} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-gray-200/80 bg-gray-50/50 text-gray-900 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all font-medium placeholder-gray-400" placeholder="Acme Corp" />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-gray-900 mb-2">Company Website</label>
+                  <input type="text" name="companyWebsite" value={formData.companyWebsite} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-gray-200/80 bg-gray-50/50 text-gray-900 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all font-medium placeholder-gray-400" placeholder="acme.com" />
+                </div>
+              </div>
+              
+              <div className="bg-gray-50/50 p-5 rounded-2xl border border-gray-100">
+                <label className="block text-sm font-bold text-gray-900 mb-3">Do you work in Email Outreach? *</label>
+                <div className="flex gap-8">
+                  <label className="flex items-center gap-3 cursor-pointer group">
+                    <div className="relative flex items-center justify-center">
+                      <input type="radio" name="emailOutreach" value="Yes" checked={formData.emailOutreach === 'Yes'} onChange={handleChange} className="peer appearance-none w-5 h-5 border-2 border-gray-300 rounded-full checked:border-indigo-600 transition-colors cursor-pointer" />
+                      <div className="absolute w-2.5 h-2.5 bg-indigo-600 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none"></div>
+                    </div>
+                    <span className="text-sm font-bold text-gray-600 group-hover:text-gray-900 transition-colors">Yes</span>
+                  </label>
+                  <label className="flex items-center gap-3 cursor-pointer group">
+                    <div className="relative flex items-center justify-center">
+                      <input type="radio" name="emailOutreach" value="No" checked={formData.emailOutreach === 'No'} onChange={handleChange} className="peer appearance-none w-5 h-5 border-2 border-gray-300 rounded-full checked:border-indigo-600 transition-colors cursor-pointer" />
+                      <div className="absolute w-2.5 h-2.5 bg-indigo-600 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none"></div>
+                    </div>
+                    <span className="text-sm font-bold text-gray-600 group-hover:text-gray-900 transition-colors">No</span>
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold text-gray-900 mb-2">Notes (Optional)</label>
+                <textarea name="notes" value={formData.notes} onChange={handleChange} rows="2" className="w-full px-4 py-3.5 rounded-xl border border-gray-200/80 bg-gray-50/50 text-gray-900 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all font-medium placeholder-gray-400 resize-none" placeholder="Any specific challenges you want to solve?"></textarea>
+              </div>
+            </form>
+          </div>
+          
+          <div className="p-6 md:px-10 md:py-6 border-t border-gray-100 bg-white flex justify-end gap-4 shrink-0 shadow-[0_-10px_20px_rgb(0,0,0,0.02)] relative z-10">
+            <button type="button" onClick={onClose} className="px-6 py-3.5 rounded-xl font-bold text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-colors">
+              Cancel
+            </button>
+            <button form="registration-form" type="submit" disabled={isSubmitting} className="px-8 py-3.5 bg-gradient-to-r from-gray-900 to-gray-800 text-white rounded-xl font-black hover:from-gray-800 hover:to-gray-700 transition-all flex items-center justify-center gap-2 disabled:opacity-70 shadow-lg shadow-gray-900/20 transform hover:-translate-y-0.5">
+              {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Proceed to Payment (₹99)'}
+            </button>
+          </div>
         </div>
       </motion.div>
     </div>
@@ -981,6 +1100,7 @@ export default function App() {
         <WhatYoullBuild />
         <FAQ />
         <ReviewsSection />
+        <ProofSection />
         <Footer />
         
         {/* Floating CTA */}
