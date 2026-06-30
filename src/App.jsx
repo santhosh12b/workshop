@@ -512,9 +512,10 @@ const Timeline = () => {
 
 const FAQ = () => {
   const faqs = [
+    { q: "What will I get from this workshop?", a: "You'll get a 100% live, hands-on workshop along with all the resources and materials needed to follow and implement everything covered during the session." },
     { q: "Why is there a ₹99 fee?", a: "We charge a nominal fee of ₹99 to ensure only serious, committed individuals attend, allowing us to deliver the highest quality experience." },
     { q: "Do I need prior experience?", a: "No, we cover everything from the absolute basics up to advanced outreach strategies." },
-    { q: "Will recordings be available?", a: "Yes, all registrants will get access to the replays for a limited time." }
+    { q: "Will recordings be available?", a: "No. This is a 100% live, hands-on workshop, so no recording will be provided. We recommend attending live to get the most value from the session." }
   ];
 
   return (
@@ -668,7 +669,7 @@ const FinalCTA = ({ onOpenModal }) => {
   );
 };
 
-const ProofSection = () => {
+const ProofSection = ({ onOpenModal }) => {
   const proofs = [proof14, proof15, proof16, proof17, proof18, proof19];
   const [selectedProof, setSelectedProof] = useState(null);
 
@@ -716,6 +717,17 @@ const ProofSection = () => {
               </FadeIn>
             ))}
           </div>
+          
+          <FadeIn delay={0.3}>
+            <div className="text-center mt-12 flex flex-col items-center gap-8">
+              <h3 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
+                You can also do it!
+              </h3>
+              <MagneticButton onClick={onOpenModal} className="py-4 md:py-5 px-8 md:px-12 bg-gradient-to-r from-indigo-500 to-rose-500 text-white font-black text-lg md:text-xl rounded-2xl shadow-[0_0_40px_rgba(99,102,241,0.3)]">
+                RESERVE YOUR SPOT FOR ₹99 NOW!
+              </MagneticButton>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -869,7 +881,7 @@ const WhoIsThisFor = () => {
 
 const RegistrationModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
-    name: '', email: '', phone: '', designation: '', companyName: '', companyWebsite: '', emailOutreach: 'No', notes: ''
+    name: '', email: '', phone: '', designation: '', companyName: '', companyWebsite: '', understoodTools: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -912,10 +924,9 @@ const RegistrationModal = ({ isOpen, onClose }) => {
         await new Promise(resolve => setTimeout(resolve, 1500));
       }
 
-      // 2. Open Razorpay - BYPASSED FOR TESTING
-      /*
+      // 2. Open Razorpay
       const options = {
-        key: 'YOUR_RAZORPAY_KEY_ID', // Replace with Razorpay Key
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID, // Uses environment variable
         amount: 9900, // ₹99.00
         currency: 'INR',
         name: 'Pixoda',
@@ -939,11 +950,6 @@ const RegistrationModal = ({ isOpen, onClose }) => {
         alert("Payment failed. Please try again.");
       });
       rzp.open();
-      */
-
-      // Temporary test success
-      alert("Test data successfully sent to Google Sheets! (Razorpay bypassed for testing)");
-      onClose();
 
     } catch (error) {
       console.error(error);
@@ -954,7 +960,8 @@ const RegistrationModal = ({ isOpen, onClose }) => {
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    setFormData({ ...formData, [e.target.name]: value });
   };
 
   return (
@@ -1026,7 +1033,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-gray-900 mb-2">Phone Number *</label>
-                  <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-gray-200/80 bg-gray-50/50 text-gray-900 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all font-medium placeholder-gray-400" placeholder="+91 98765 43210" />
+                  <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-gray-200/80 bg-gray-50/50 text-gray-900 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all font-medium placeholder-gray-400" placeholder="+91 90XXXXXXXX" />
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-gray-900 mb-2">Designation</label>
@@ -1045,29 +1052,21 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
-              <div className="bg-gray-50/50 p-5 rounded-2xl border border-gray-100">
-                <label className="block text-sm font-bold text-gray-900 mb-3">Do you work in Email Outreach? *</label>
-                <div className="flex gap-8">
-                  <label className="flex items-center gap-3 cursor-pointer group">
-                    <div className="relative flex items-center justify-center">
-                      <input type="radio" name="emailOutreach" value="Yes" checked={formData.emailOutreach === 'Yes'} onChange={handleChange} className="peer appearance-none w-5 h-5 border-2 border-gray-300 rounded-full checked:border-indigo-600 transition-colors cursor-pointer" />
-                      <div className="absolute w-2.5 h-2.5 bg-indigo-600 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none"></div>
-                    </div>
-                    <span className="text-sm font-bold text-gray-600 group-hover:text-gray-900 transition-colors">Yes</span>
-                  </label>
-                  <label className="flex items-center gap-3 cursor-pointer group">
-                    <div className="relative flex items-center justify-center">
-                      <input type="radio" name="emailOutreach" value="No" checked={formData.emailOutreach === 'No'} onChange={handleChange} className="peer appearance-none w-5 h-5 border-2 border-gray-300 rounded-full checked:border-indigo-600 transition-colors cursor-pointer" />
-                      <div className="absolute w-2.5 h-2.5 bg-indigo-600 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none"></div>
-                    </div>
-                    <span className="text-sm font-bold text-gray-600 group-hover:text-gray-900 transition-colors">No</span>
-                  </label>
+              <div className="bg-gray-50/50 p-5 rounded-2xl border border-gray-100 flex items-start gap-4">
+                <div className="flex items-center h-5 mt-0.5">
+                  <input
+                    id="understoodTools"
+                    name="understoodTools"
+                    type="checkbox"
+                    required
+                    checked={formData.understoodTools}
+                    onChange={handleChange}
+                    className="w-5 h-5 border border-gray-300 rounded bg-white focus:ring-3 focus:ring-indigo-300 accent-indigo-600 cursor-pointer"
+                  />
                 </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-bold text-gray-900 mb-2">Notes (Optional)</label>
-                <textarea name="notes" value={formData.notes} onChange={handleChange} rows="2" className="w-full px-4 py-3.5 rounded-xl border border-gray-200/80 bg-gray-50/50 text-gray-900 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all font-medium placeholder-gray-400 resize-none" placeholder="Any specific challenges you want to solve?"></textarea>
+                <label htmlFor="understoodTools" className="text-[13px] md:text-sm font-semibold text-gray-700 leading-snug cursor-pointer">
+                  I understand this is a hands-on workshop and that I will need to purchase a domain, emails, lead data, and other required tools (approximately ₹14,000) to follow along.
+                </label>
               </div>
             </form>
           </div>
@@ -1086,6 +1085,56 @@ const RegistrationModal = ({ isOpen, onClose }) => {
   );
 };
 
+const CompetitorCTA = ({ onOpenModal }) => {
+  return (
+    <section className="py-24 md:py-32 bg-[#FAFAFA] relative overflow-hidden">
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
+        <FadeIn>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-[56px] font-black text-[#111827] tracking-tight mb-6 leading-[1.1]">
+              Your competitors are<br className="hidden md:block" /> already moving faster.
+            </h2>
+            <p className="text-lg md:text-xl text-[#6B7280] font-medium max-w-3xl mx-auto leading-relaxed">
+              While some teams are connecting tools and exporting spreadsheets, others are talking to prospects, booking meetings, and closing deals.
+            </p>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.1}>
+          <div className="rounded-[2.5rem] p-10 md:p-16 lg:p-20 relative overflow-hidden flex flex-col items-center text-center shadow-[0_20px_50px_rgba(0,0,0,0.15)]" style={{
+            background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)'
+          }}>
+            {/* Ambient Background Glows */}
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-rose-500/15 rounded-full blur-[100px] pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-500/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div className="relative z-10 w-full flex flex-col items-center">
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight mb-10 leading-[1.2]">
+                Stop buying more tools.<br className="hidden md:block" /> Start booking more meetings.
+              </h3>
+
+              <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 max-w-xl w-full mb-12 shadow-inner">
+                <div className="text-xl md:text-2xl font-bold text-white mb-2">
+                  Your Next Client Is Already Online.
+                </div>
+                <div className="text-[#9BA1B9] font-medium md:text-lg">
+                  Will you reach them before someone else does?
+                </div>
+              </div>
+
+              <MagneticButton onClick={onOpenModal} className="w-full sm:w-auto bg-white hover:bg-gray-50 text-[#0F172A] rounded-2xl py-5 px-10 font-bold text-lg shadow-[0_0_40px_rgba(255,255,255,0.1)] flex items-center justify-center gap-3 group transition-all">
+                <Calendar className="w-6 h-6 text-indigo-600" />
+                <span>Reserve Your Spot For ₹99</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </MagneticButton>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+};
+
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleOpenModal = () => setIsModalOpen(true);
@@ -1098,11 +1147,12 @@ export default function App() {
         <FinalCTA onOpenModal={handleOpenModal} />
         <WhoIsThisFor />
         {/* <ProblemSection /> */}
-        <ProofSection />
+        <ProofSection onOpenModal={handleOpenModal} />
         <Timeline />
         <WhatYoullBuild />
         <FAQ />
         <ReviewsSection />
+        <CompetitorCTA onOpenModal={handleOpenModal} />
         <Footer />
 
         {/* Floating CTA */}
