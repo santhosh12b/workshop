@@ -630,7 +630,7 @@ const FinalCTA = ({ onOpenModal }) => {
                   </div>
                   <div>
                     <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-1">Will Be Held In</div>
-                    <div className="text-xl font-extrabold text-white">Google Meet Live Session</div>
+                    <div className="text-xl font-extrabold text-white">GoogleMeet Live Session</div>
                   </div>
                 </div>
               </div>
@@ -642,16 +642,16 @@ const FinalCTA = ({ onOpenModal }) => {
               </div>
 
             </div>
-          </div> 
+          </div>
         </FadeIn>
 
         {/* Bottom Benefits */}
         <FadeIn delay={0.2}>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              "Zero Rupee Marketing hacking strategies",
-              "Get Bonus Worth of Rs.5000/-",
-              "Gamified Marketing Framework for Entrepreneurs"
+              "High-Value Client Deal closing strategies",
+              "Get resources and workshop worth of Rs.5000/-",
+              "Complete Outbound System Framework"
             ].map((text, i) => (
               <div key={i} className="flex items-center gap-4 bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-5">
                 <div className="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center flex-shrink-0">
