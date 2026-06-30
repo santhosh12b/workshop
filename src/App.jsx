@@ -3,9 +3,9 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ReactLenis } from '@studio-freight/react-lenis';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
-import { 
-  CheckCircle2, Mail, Users, Calendar, Database, 
-  BarChart, ChevronDown, ArrowRight, TrendingUp, 
+import {
+  CheckCircle2, Mail, Users, Calendar, Database,
+  BarChart, ChevronDown, ArrowRight, TrendingUp,
   MonitorPlay, Briefcase, Target, Shield, Zap, Star, Globe, FileText,
   Quote, ThumbsUp, Heart, MessageCircle, X, Loader2, Clock
 } from 'lucide-react';
@@ -80,7 +80,7 @@ const Hero = ({ onOpenModal }) => {
       {/* Premium subtle background meshes */}
       <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[100px] mix-blend-multiply animate-blob pointer-events-none"></div>
       <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-rose-500/10 rounded-full blur-[100px] mix-blend-multiply animate-blob pointer-events-none" style={{ animationDelay: '2s' }}></div>
-      
+
       <div className="max-w-5xl mx-auto px-6 flex flex-col items-center text-center relative z-10">
         <div className="space-y-10 flex flex-col items-center">
           <FadeIn>
@@ -93,21 +93,21 @@ const Hero = ({ onOpenModal }) => {
               ))}
             </div>
           </FadeIn>
-          
+
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-gray-900">
-              Free 3-Day Live <br/>
-              <span className="text-gradient">Hands-On Training</span> <br/>
-              to Get Clients
+              3-Day Live <br />
+              <span className="text-gradient">Hands-On Training</span> <br />
+              to Get Clients in 30 Days
             </h1>
           </FadeIn>
-          
+
           <FadeIn delay={0.2}>
             <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
               For Freelancers • Agency Owners • SaaS Founders • Consultants • Video Editors • Marketing Teams
             </p>
           </FadeIn>
-          
+
           <FadeIn delay={0.25}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mt-2 mb-4 text-gray-800 font-bold text-base md:text-lg bg-white/60 backdrop-blur-md px-8 py-3 rounded-2xl border border-gray-200/50 shadow-sm">
               <div className="flex items-center gap-2.5">
@@ -121,7 +121,7 @@ const Hero = ({ onOpenModal }) => {
               </div>
             </div>
           </FadeIn>
-          
+
           <FadeIn delay={0.3}>
             <div className="flex flex-col sm:flex-row justify-center gap-4 pt-2">
               <MagneticButton onClick={onOpenModal} className="px-10 py-5 bg-gray-900 text-white font-semibold text-lg flex items-center justify-center gap-2 shadow-2xl shadow-gray-900/20">
@@ -143,12 +143,12 @@ const ReviewsSection = () => {
       {/* Bioluminescent Accents */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] mix-blend-multiply pointer-events-none"></div>
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-rose-500/10 rounded-full blur-[120px] mix-blend-multiply pointer-events-none"></div>
-      
+
       {/* Subtle Grain overlay for premium texture */}
       <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
-      
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
+
         <FadeIn>
           <div className="text-center mb-16 md:mb-24">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -160,9 +160,9 @@ const ReviewsSection = () => {
           </div>
         </FadeIn>
 
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 pb-10">
-          
-        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 pb-10">
+
+
           {/* CARD 2: Dinesh Kumar */}
           <FadeIn delay={0.2}>
             <div className="flex flex-col items-center group">
@@ -200,7 +200,7 @@ const ReviewsSection = () => {
             </div>
           </FadeIn>
 
-            {/* CARD 1: Dharani Mahendiran */}
+          {/* CARD 1: Dharani Mahendiran */}
           <FadeIn delay={0.1}>
             <div className="flex flex-col items-center group">
               <div className="bg-white p-6 md:p-8 rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-gray-100 relative mb-6 transition-transform duration-300 group-hover:-translate-y-1 w-full">
@@ -246,7 +246,7 @@ const ReviewsSection = () => {
 
 const ProblemItem = ({ p, index }) => {
   const [ref, inView] = useInView({ threshold: 0.5 });
-  
+
   return (
     <div ref={ref} className="border-b border-gray-100 py-12 first:pt-0">
       <div className="flex gap-6 md:gap-8 items-start">
@@ -256,7 +256,7 @@ const ProblemItem = ({ p, index }) => {
         <div>
           <h3 className={`text-2xl md:text-3xl font-bold mb-3 relative inline-block transition-colors duration-[800ms] ${inView ? 'text-gray-400' : 'text-gray-900'}`}>
             <span className="relative z-10">{p.title}</span>
-            <div 
+            <div
               className="absolute top-1/2 left-0 h-[2px] md:h-[3px] bg-rose-500/80 -translate-y-1/2 transition-all duration-[800ms] ease-out z-20 pointer-events-none mix-blend-multiply"
               style={{ width: inView ? '100%' : '0%' }}
             ></div>
@@ -283,30 +283,30 @@ const ProblemSection = () => {
   return (
     <section className="py-32 bg-white relative border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16">
-        
+
         {/* Sticky Left Column */}
         <div className="lg:col-span-5 relative">
           <div className="sticky top-40">
             <FadeIn>
               <div className="w-16 h-16 rounded-full bg-rose-50 flex items-center justify-center mb-8 border border-rose-100">
-                 <div className="w-6 h-6 rounded-full bg-rose-500 animate-pulse shadow-[0_0_20px_rgba(244,63,94,0.5)]"></div>
+                <div className="w-6 h-6 rounded-full bg-rose-500 animate-pulse shadow-[0_0_20px_rgba(244,63,94,0.5)]"></div>
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-6 leading-[1.1]">
-                If You're Great <br/> At What You Do...
+                If You're Great <br /> At What You Do...
               </h2>
               <p className="text-xl text-gray-400 font-medium mb-8 leading-tight">
                 But struggle to get clients consistently, you are experiencing the symptoms of a broken system.
               </p>
               <div className="border-l-4 border-indigo-500 pl-6 py-2">
                 <p className="text-lg text-gray-500 leading-relaxed">
-                  You don't have a talent problem. <br/>
+                  You don't have a talent problem. <br />
                   <strong className="text-gray-900 font-extrabold">You have an acquisition problem.</strong>
                 </p>
               </div>
             </FadeIn>
           </div>
         </div>
-        
+
         {/* Scrolling Right Column */}
         <div className="lg:col-span-7">
           <div className="flex flex-col">
@@ -375,9 +375,9 @@ const WhatYoullBuild = () => {
               </p>
             </div>
             <div className="hidden md:block">
-               <div className="w-24 h-24 rounded-full border border-gray-200 flex items-center justify-center">
-                 <Target className="w-8 h-8 text-indigo-500 animate-[pulse_3s_ease-in-out_infinite]" />
-               </div>
+              <div className="w-24 h-24 rounded-full border border-gray-200 flex items-center justify-center">
+                <Target className="w-8 h-8 text-indigo-500 animate-[pulse_3s_ease-in-out_infinite]" />
+              </div>
             </div>
           </div>
         </FadeIn>
@@ -386,7 +386,7 @@ const WhatYoullBuild = () => {
           {deliverables.map((item, i) => (
             <FadeIn key={i} delay={i * 0.1}>
               <div className="group bg-white rounded-[40px] p-10 md:p-14 border border-gray-100/80 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_60px_rgb(0,0,0,0.06)] hover:-translate-y-2 transition-all duration-500 relative overflow-hidden h-full flex flex-col">
-                
+
                 {/* Massive Watermark Number */}
                 <div className="absolute -bottom-10 -right-6 text-[200px] font-black text-gray-50 leading-none tracking-tighter select-none group-hover:scale-110 group-hover:text-gray-100 transition-all duration-700 pointer-events-none z-0">
                   {item.id}
@@ -396,7 +396,7 @@ const WhatYoullBuild = () => {
                   <div className={`w-16 h-16 rounded-2xl ${item.bg} ${item.color} flex items-center justify-center mb-8 shadow-inner group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500`}>
                     {item.icon}
                   </div>
-                  
+
                   <h3 className="text-3xl font-extrabold text-gray-900 mb-4">{item.title}</h3>
                   <p className="text-lg text-gray-500 leading-relaxed max-w-sm">{item.desc}</p>
                 </div>
@@ -448,18 +448,18 @@ const Timeline = () => {
       <div className="max-w-5xl mx-auto px-6">
         <FadeIn>
           <div className="text-center mb-24">
-             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">The 3-Day Curriculum</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">The 3-Day Curriculum</h2>
           </div>
         </FadeIn>
 
         <div className="space-y-12 relative flex flex-col items-center">
           {/* Subtle central timeline line behind cards */}
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-200 -translate-x-1/2 hidden lg:block"></div>
-          
+
           {days.map((day, i) => (
             <FadeIn key={i} delay={i * 0.1} className="w-full relative z-10">
               <div className="flex flex-col items-center group">
-                
+
                 {/* Day Header */}
                 <div className="text-center mb-8 bg-[#FAFAFA] px-4 relative z-10">
                   <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 font-bold tracking-widest text-xs mb-4 border border-indigo-100 shadow-sm">
@@ -467,38 +467,38 @@ const Timeline = () => {
                   </div>
                   <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900">{day.title}</h3>
                 </div>
-                
+
                 {/* Day Content Card */}
                 <div className="w-full max-w-3xl mx-auto bg-white rounded-[2.5rem] p-8 md:p-16 border border-gray-100 shadow-[0_8px_40px_rgb(0,0,0,0.04)] relative z-10 overflow-hidden">
                   <div className="relative">
                     {/* Subtle connecting line down the center */}
                     <div className="absolute left-1/2 top-8 bottom-8 w-px bg-gray-100 -translate-x-1/2 hidden md:block z-0"></div>
-                    
+
                     <div className="flex flex-col gap-12 relative z-10">
                       {day.items.map((item, j) => (
                         <div key={j} className="flex flex-col items-center text-center gap-4 group">
-                           {/* Icon with hover effect */}
-                           <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center border border-gray-200 shadow-sm relative transition-colors duration-500 group-hover:border-indigo-200 z-10">
-                             <div className="absolute inset-0 bg-indigo-50 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 origin-center"></div>
-                             <CheckCircle2 className="w-6 h-6 text-indigo-600 relative z-10" />
-                           </div>
-                           
-                           {/* Text Content */}
-                           <div className="max-w-xl mx-auto bg-white px-2">
-                              <h4 className="font-extrabold text-gray-900 text-[22px] md:text-2xl leading-tight mb-3 group-hover:text-indigo-600 transition-colors duration-300">
-                                <span className="text-indigo-500 mr-2">Lesson {j + 1}:</span>
-                                {item.title}
-                              </h4>
-                              <p className="text-gray-500 leading-relaxed text-[16px] md:text-[17px] font-medium">
-                                {item.desc}
-                              </p>
-                           </div>
+                          {/* Icon with hover effect */}
+                          <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center border border-gray-200 shadow-sm relative transition-colors duration-500 group-hover:border-indigo-200 z-10">
+                            <div className="absolute inset-0 bg-indigo-50 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 origin-center"></div>
+                            <CheckCircle2 className="w-6 h-6 text-indigo-600 relative z-10" />
+                          </div>
+
+                          {/* Text Content */}
+                          <div className="max-w-xl mx-auto bg-white px-2">
+                            <h4 className="font-extrabold text-gray-900 text-[22px] md:text-2xl leading-tight mb-3 group-hover:text-indigo-600 transition-colors duration-300">
+                              <span className="text-indigo-500 mr-2">Lesson {j + 1}:</span>
+                              {item.title}
+                            </h4>
+                            <p className="text-gray-500 leading-relaxed text-[16px] md:text-[17px] font-medium">
+                              {item.desc}
+                            </p>
+                          </div>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
-                
+
               </div>
             </FadeIn>
           ))}
@@ -523,7 +523,7 @@ const FAQ = () => {
         <FadeIn>
           <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16 text-gray-900">Frequently Asked Questions</h2>
         </FadeIn>
-        
+
         <div className="space-y-4">
           {faqs.map((faq, i) => (
             <FadeIn key={i} delay={i * 0.1}>
@@ -552,14 +552,14 @@ const FinalCTA = ({ onOpenModal }) => {
       {/* Premium background effects */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-rose-600/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
-      
+
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <FadeIn>
           <div className="text-center mb-16 md:mb-24">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] max-w-4xl mx-auto">
-              Secure Your Spot In The 3-Day's ONLINE <br className="hidden lg:block" />
+              Secure Your Spot In The <span className="whitespace-nowrap">3-Day's ONLINE</span> <br className="hidden lg:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-rose-400">
-                Zero Rupee Marketing Challenge
+                Client Acquisition Challenge
               </span>
             </h2>
           </div>
@@ -567,7 +567,7 @@ const FinalCTA = ({ onOpenModal }) => {
 
         <FadeIn delay={0.1}>
           <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 shadow-2xl flex flex-col lg:flex-row gap-12 items-center relative overflow-hidden">
-            
+
             {/* Subtle Inner Glow */}
             <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none"></div>
 
@@ -578,18 +578,18 @@ const FinalCTA = ({ onOpenModal }) => {
                 <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-950 flex items-center justify-center">
                   {/* Grid overlay */}
                   <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-                  
+
                   {/* Play Button */}
                   <div className="relative z-10 w-24 h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/20 transition-all duration-500 cursor-pointer shadow-[0_0_40px_rgba(255,255,255,0.1)]">
                     <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-2"></div>
                   </div>
-                  
+
                   {/* Floating badges */}
                   <div className="absolute bottom-6 left-6 px-4 py-2 bg-black/60 backdrop-blur-md rounded-xl border border-white/10 flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></div>
                     <span className="text-white text-xs font-bold tracking-wider">LIVE WEBINAR</span>
                   </div>
-                  
+
                   <div className="absolute top-6 right-6 px-4 py-2 bg-gradient-to-r from-rose-500 to-rose-600 rounded-xl border border-rose-400 text-white font-black italic transform rotate-3 shadow-xl">
                     LEARN IN 3 DAYS
                   </div>
@@ -599,7 +599,7 @@ const FinalCTA = ({ onOpenModal }) => {
 
             {/* Right: Details & CTA */}
             <div className="w-full lg:w-1/2 flex flex-col gap-8 relative z-10">
-              
+
               <div className="space-y-6">
                 {/* Detail Item 1 */}
                 <div className="flex gap-5 items-start">
@@ -630,7 +630,7 @@ const FinalCTA = ({ onOpenModal }) => {
                   </div>
                   <div>
                     <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-1">Will Be Held In</div>
-                    <div className="text-xl font-extrabold text-white">Zoom Live Session</div>
+                    <div className="text-xl font-extrabold text-white">Google Meet Live Session</div>
                   </div>
                 </div>
               </div>
@@ -642,7 +642,7 @@ const FinalCTA = ({ onOpenModal }) => {
               </div>
 
             </div>
-          </div>
+          </div> 
         </FadeIn>
 
         {/* Bottom Benefits */}
@@ -700,12 +700,12 @@ const ProofSection = () => {
           <div className="max-w-5xl mx-auto columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
             {proofs.map((proof, idx) => (
               <FadeIn key={idx} delay={0.1 * (idx % 3)} className="break-inside-avoid">
-                <div 
+                <div
                   onClick={() => setSelectedProof(proof)}
                   className="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] transition-shadow duration-500 group relative cursor-zoom-in"
                 >
                   <img src={proof} alt={`Student Result Proof ${idx + 1}`} className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700" loading="lazy" />
-                  
+
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-gray-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
                     <span className="bg-white/90 text-gray-900 font-bold px-6 py-3 rounded-full text-sm tracking-wide shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
@@ -721,21 +721,21 @@ const ProofSection = () => {
 
       {/* Lightbox Modal */}
       {selectedProof && (
-        <div 
+        <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 sm:p-8 backdrop-blur-sm"
           onClick={() => setSelectedProof(null)}
         >
-          <button 
+          <button
             className="absolute top-6 right-6 text-white/60 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors duration-200"
             onClick={() => setSelectedProof(null)}
           >
-             <X className="w-8 h-8" />
+            <X className="w-8 h-8" />
           </button>
-          <img 
-            src={selectedProof} 
-            alt="Expanded Proof" 
-            className="max-w-[95vw] max-h-[90vh] rounded-2xl object-contain shadow-2xl" 
-            onClick={(e) => e.stopPropagation()} 
+          <img
+            src={selectedProof}
+            alt="Expanded Proof"
+            className="max-w-[95vw] max-h-[90vh] rounded-2xl object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
           />
         </div>
       )}
@@ -769,13 +769,13 @@ const WhoIsThisFor = () => {
     <section className="py-24 md:py-32 bg-[#FAFAFA] relative border-y border-gray-100 overflow-hidden">
       {/* Notebook Dot Grid Background */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 2px, transparent 2px)', backgroundSize: '32px 32px' }}></div>
-      
+
       {/* Background Doodles */}
       <div className="absolute top-32 left-10 text-rose-400 opacity-40 transform -rotate-12 pointer-events-none hidden md:block">
-        <svg width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round"><path d="M10,50 Q30,10 50,50 T90,50"/></svg>
+        <svg width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round"><path d="M10,50 Q30,10 50,50 T90,50" /></svg>
       </div>
       <div className="absolute bottom-32 right-10 text-indigo-400 opacity-40 transform rotate-45 pointer-events-none hidden md:block">
-        <svg width="60" height="60" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round"><path d="M50,10 L50,90 M10,50 L90,50 M20,20 L80,80 M20,80 L80,20"/></svg>
+        <svg width="60" height="60" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round"><path d="M50,10 L50,90 M10,50 L90,50 M20,20 L80,80 M20,80 L80,20" /></svg>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
@@ -797,44 +797,44 @@ const WhoIsThisFor = () => {
         </FadeIn>
 
         <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-16 lg:gap-20">
-          
+
           {/* Left: Premium Editorial Image Frame */}
           <FadeIn className="relative w-full max-w-[300px] lg:max-w-[400px] flex-shrink-0 mt-8 lg:mt-0 mx-auto lg:mx-0">
-            
+
             {/* Background Accent 1 */}
             <div className="absolute -inset-3 lg:-inset-5 bg-gradient-to-br from-indigo-100 to-rose-100 rounded-[2.5rem] transform rotate-[-4deg] border border-gray-200/50 z-0 hidden lg:block"></div>
-            
+
             {/* Background Accent 2 */}
             <div className="absolute -inset-3 lg:-inset-5 bg-gray-900 rounded-[2.5rem] transform rotate-[3deg] z-0 hidden lg:block shadow-xl shadow-gray-900/20"></div>
-            
+
             {/* The Image Container */}
             <div className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl z-10 bg-gray-900 group">
-              <img 
-                src="/modern_professionals.png" 
-                alt="Business Growth Strategy" 
+              <img
+                src="/modern_professionals.png"
+                alt="Business Growth Strategy"
                 className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 opacity-90"
               />
-              
+
               {/* Gradient Overlay for depth */}
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent"></div>
-              
+
               {/* Floating Badge */}
               <div className="absolute bottom-6 left-6 right-6 transform group-hover:-translate-y-2 transition-transform duration-500">
                 <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-4 rounded-xl flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-indigo-500/30">
-                     <Users className="w-6 h-6 text-white" />
-                   </div>
-                   <div>
-                     <div className="text-white font-bold text-[15px] tracking-wide leading-tight">For Growth Seekers</div>
-                     <div className="text-indigo-200 text-[13px] font-medium mt-0.5">Join 500+ successful alumni</div>
-                   </div>
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-indigo-500/30">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-white font-bold text-[15px] tracking-wide leading-tight">For Growth Seekers</div>
+                    <div className="text-indigo-200 text-[13px] font-medium mt-0.5">Join 500+ successful alumni</div>
+                  </div>
                 </div>
               </div>
             </div>
-            
+
             {/* Decorative Elements */}
             <div className="absolute -top-12 -right-12 text-indigo-500 opacity-20 transform rotate-12 z-0 hidden lg:block pointer-events-none">
-               <svg width="120" height="120" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="50" cy="50" r="40" strokeDasharray="6 6"/></svg>
+              <svg width="120" height="120" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="50" cy="50" r="40" strokeDasharray="6 6" /></svg>
             </div>
             <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNFMkU4RjAiLz48L3N2Zz4=')] z-0 hidden lg:block pointer-events-none opacity-60"></div>
 
@@ -845,12 +845,12 @@ const WhoIsThisFor = () => {
             {audiences.map((aud, i) => (
               <FadeIn key={i} delay={aud.delay}>
                 <div className="bg-white border-[2px] border-[#0F172A] px-5 py-4 lg:px-6 lg:py-5 rounded-[12px] shadow-sm flex items-start gap-4">
-                  
+
                   {/* Circular target icon */}
                   <div className="w-[22px] h-[22px] rounded-full border-[2.5px] border-[#0F172A] flex items-center justify-center flex-shrink-0 mt-1 bg-rose-50/50">
                     <div className="w-2.5 h-2.5 bg-[#0F172A] rounded-full"></div>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-[17px] lg:text-[19px] font-black text-[#0F172A] mb-0.5 leading-tight tracking-tight">{aud.title}</h3>
                     <p className="text-gray-500 font-medium text-[13px] lg:text-[14px]">{aud.desc}</p>
@@ -886,19 +886,19 @@ const RegistrationModal = ({ isOpen, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       // 1. Google Sheets Submission Placeholder
       // WARNING: Replace this URL with the actual Web App URL you get from Google Apps Script
       const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx2VNrGqcioBzWnl2Rqq3FT6tEoQCrXBGU5Vtrd0mrHW_5D51rk6sS7_aobeYjQ7SGZKg/exec';
-      
+
       // Prepare data for Google Sheets
       if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL') {
         // Create an explicit URL-encoded string (100% browser compatible)
         const formBody = Object.keys(formData)
           .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(formData[key]))
           .join('&');
-        
+
         await fetch(GOOGLE_SCRIPT_URL, {
           method: 'POST',
           headers: {
@@ -911,7 +911,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
         // Just simulate if no URL is provided yet
         await new Promise(resolve => setTimeout(resolve, 1500));
       }
-      
+
       // 2. Open Razorpay - BYPASSED FOR TESTING
       /*
       const options = {
@@ -940,11 +940,11 @@ const RegistrationModal = ({ isOpen, onClose }) => {
       });
       rzp.open();
       */
-      
+
       // Temporary test success
       alert("Test data successfully sent to Google Sheets! (Razorpay bypassed for testing)");
       onClose();
-      
+
     } catch (error) {
       console.error(error);
       alert("Something went wrong. Please try again.");
@@ -960,7 +960,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
       <div className="absolute inset-0 bg-gray-900/80 backdrop-blur-md" onClick={onClose}></div>
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         className="relative w-full max-w-4xl bg-white rounded-[2rem] shadow-2xl overflow-hidden max-h-[90vh] flex flex-col lg:flex-row"
@@ -970,7 +970,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-indigo-500/10 to-rose-500/10 z-0"></div>
           <div className="absolute -top-24 -left-24 w-64 h-64 bg-indigo-600 rounded-full blur-[100px] opacity-40 z-0"></div>
           <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-rose-600 rounded-full blur-[100px] opacity-40 z-0"></div>
-          
+
           <div className="relative z-10">
             <div className="w-14 h-14 bg-white/10 backdrop-blur-xl rounded-2xl flex items-center justify-center mb-8 border border-white/10 shadow-xl">
               <Target className="w-7 h-7 text-indigo-400" />
@@ -980,20 +980,20 @@ const RegistrationModal = ({ isOpen, onClose }) => {
               Join an elite group of professionals building predictable client acquisition systems.
             </p>
           </div>
-          
+
           <div className="relative z-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl">
             <div className="flex text-amber-400 mb-3">
               {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
             </div>
             <p className="text-sm text-gray-300 italic mb-5 leading-relaxed font-serif">"The clarity provided was exceptional. It's working out...!"</p>
             <div className="flex items-center gap-3">
-               <div className="w-10 h-10 rounded-full bg-gray-700 overflow-hidden border-2 border-white/20">
-                 <img src="/dinesh.jpg" alt="Dinesh" className="w-full h-full object-cover" />
-               </div>
-               <div>
-                 <div className="text-sm font-bold text-white">Dinesh Kumar</div>
-                 <div className="text-[11px] text-gray-400 uppercase tracking-widest font-semibold mt-0.5">Alumni</div>
-               </div>
+              <div className="w-10 h-10 rounded-full bg-gray-700 overflow-hidden border-2 border-white/20">
+                <img src="/dinesh.jpg" alt="Dinesh" className="w-full h-full object-cover" />
+              </div>
+              <div>
+                <div className="text-sm font-bold text-white">Dinesh Kumar</div>
+                <div className="text-[11px] text-gray-400 uppercase tracking-widest font-semibold mt-0.5">Alumni</div>
+              </div>
             </div>
           </div>
         </div>
@@ -1009,7 +1009,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
               <X className="w-5 h-5 text-gray-900 group-hover:text-black transition-colors" />
             </button>
           </div>
-          
+
           <div className="p-6 md:px-10 overflow-y-auto flex-grow [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-200 [&::-webkit-scrollbar-thumb]:rounded-full">
             <form id="registration-form" onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -1022,7 +1022,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                   <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-gray-200/80 bg-gray-50/50 text-gray-900 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all font-medium placeholder-gray-400" placeholder="john@example.com" />
                 </div>
               </div>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-gray-900 mb-2">Phone Number *</label>
@@ -1044,7 +1044,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                   <input type="text" name="companyWebsite" value={formData.companyWebsite} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-gray-200/80 bg-gray-50/50 text-gray-900 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all font-medium placeholder-gray-400" placeholder="acme.com" />
                 </div>
               </div>
-              
+
               <div className="bg-gray-50/50 p-5 rounded-2xl border border-gray-100">
                 <label className="block text-sm font-bold text-gray-900 mb-3">Do you work in Email Outreach? *</label>
                 <div className="flex gap-8">
@@ -1071,7 +1071,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
               </div>
             </form>
           </div>
-          
+
           <div className="p-6 md:px-10 md:py-6 border-t border-gray-100 bg-white flex flex-col items-center justify-center gap-3 shrink-0 shadow-[0_-10px_20px_rgb(0,0,0,0.02)] relative z-10">
             <button form="registration-form" type="submit" disabled={isSubmitting} className="w-full sm:w-auto px-12 py-4 bg-gradient-to-r from-gray-900 to-gray-800 text-white rounded-xl font-black hover:from-gray-800 hover:to-gray-700 transition-all flex items-center justify-center gap-2 disabled:opacity-70 shadow-lg shadow-gray-900/20 transform hover:-translate-y-0.5 text-lg">
               {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Proceed to Payment (₹99)'}
@@ -1097,19 +1097,19 @@ export default function App() {
         <Hero onOpenModal={handleOpenModal} />
         <FinalCTA onOpenModal={handleOpenModal} />
         <WhoIsThisFor />
-        <ProblemSection />
+        {/* <ProblemSection /> */}
+        <ProofSection />
         <Timeline />
         <WhatYoullBuild />
         <FAQ />
         <ReviewsSection />
-        <ProofSection />
         <Footer />
-        
+
         {/* Floating CTA */}
         <div className="fixed bottom-6 right-6 z-50 md:hidden">
-           <MagneticButton onClick={handleOpenModal} className="w-14 h-14 bg-gradient-primary rounded-full flex items-center justify-center shadow-xl shadow-indigo-500/30 text-white">
-             <ArrowRight className="w-6 h-6" />
-           </MagneticButton>
+          <MagneticButton onClick={handleOpenModal} className="w-14 h-14 bg-gradient-primary rounded-full flex items-center justify-center shadow-xl shadow-indigo-500/30 text-white">
+            <ArrowRight className="w-6 h-6" />
+          </MagneticButton>
         </div>
 
         <RegistrationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
