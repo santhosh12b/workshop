@@ -112,12 +112,12 @@ const Hero = ({ onOpenModal }) => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mt-2 mb-4 text-gray-800 font-bold text-base md:text-lg bg-white/60 backdrop-blur-md px-8 py-3 rounded-2xl border border-gray-200/50 shadow-sm">
               <div className="flex items-center gap-2.5">
                 <Calendar className="w-5 h-5 text-indigo-600" />
-                <span>Aug 12 - 14, 2024</span>
+                <span>July 10 - 12, 2026</span>
               </div>
               <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-gray-300"></div>
               <div className="flex items-center gap-2.5">
                 <Clock className="w-5 h-5 text-rose-500" />
-                <span>7:00 PM - 9:00 PM IST</span>
+                <span>10:00 AM - 3:00 PM IST</span>
               </div>
             </div>
           </FadeIn>
@@ -608,7 +608,7 @@ const FinalCTA = ({ onOpenModal }) => {
                   </div>
                   <div>
                     <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-1">Webinar Live On</div>
-                    <div className="text-xl font-extrabold text-white">JUN 26 2026 – JUN 28 2026</div>
+                    <div className="text-xl font-extrabold text-white">JUL 10 2026 – JUL 12 2026</div>
                   </div>
                 </div>
 
@@ -619,7 +619,7 @@ const FinalCTA = ({ onOpenModal }) => {
                   </div>
                   <div>
                     <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-1">Timing Starts At</div>
-                    <div className="text-xl font-extrabold text-white">07:00 AM to 08:30 AM</div>
+                    <div className="text-xl font-extrabold text-white">10:00 AM to 03:00 PM</div>
                   </div>
                 </div>
 
